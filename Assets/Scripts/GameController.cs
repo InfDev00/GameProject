@@ -12,13 +12,22 @@ public class GameController : MonoBehaviour
     private GameObject state;
     private StateSO[] nxtStates = new StateSO[3];
 
+
+    [Header("UISetting")]
+    public GameObject canvas;
+    public int day;
+    private UISetting UIScript;
+    private StateSO.changes[] nxtChanges = new StateSO.changes[3];
+
     [HideInInspector]
     public bool[] optionTrigers = new bool[3];
     // Start is called before the first frame update
     void Start()
     {
+        UIScript = canvas.GetComponent<UISetting>();
         GameObject status = GameObject.Find("StatusPopup");
         if(status!=null) status.SetActive(false);
+        day = 1;
 
         StateSetting();
         for(int i=0;i<3;i++) optionTrigers[i] = false;
@@ -45,14 +54,16 @@ public class GameController : MonoBehaviour
         state.name = "State";
 
         string[] optionTexts = new string[3];
-        (optionTexts, nxtStates) = GetRandomOption();
+        (optionTexts, nxtStates, nxtChanges) = GetRandomOption();
         state.GetComponent<StateSetting>().SetStateText(CurrentState.StateText,optionTexts);
+        UIScript.DayUpdate();
     }
 
-    private (string[], StateSO[]) GetRandomOption()
+    private (string[], StateSO[], StateSO.changes[]) GetRandomOption()
     {
         string[] returnArray = new string[3];
         StateSO[] returnState = new StateSO[3];
+        StateSO.changes[] returnChange = new StateSO.changes[3];
 
         int[] indexes = new int[CurrentState.options.Length];
         for(int i=0;i<indexes.Length;++i) indexes[i] = i;
@@ -63,16 +74,18 @@ public class GameController : MonoBehaviour
             var _index = _indexes[index];
             returnArray[i] = CurrentState.options[_index].optionText;
             returnState[i] = CurrentState.options[_index].optionState;
+            returnChange[i] = CurrentState.options[_index].Change;
             _indexes.RemoveAt(index);
         }
 
-        return (returnArray, returnState);
+        return (returnArray, returnState, returnChange);
     }
 
     void Option1Action()
     {
         if(nxtStates[0])
         {
+            UIScript.StatusUpdate(nxtChanges[0]);
             CurrentState = nxtStates[0];
             StateSetting();
 
@@ -83,6 +96,7 @@ public class GameController : MonoBehaviour
     {
         if(nxtStates[1])
         {
+            UIScript.StatusUpdate(nxtChanges[1]);
             CurrentState = nxtStates[1];
             StateSetting();
 
@@ -93,6 +107,7 @@ public class GameController : MonoBehaviour
     {
         if(nxtStates[2])
         {
+            UIScript.StatusUpdate(nxtChanges[2]);
             CurrentState = nxtStates[2];
             StateSetting();
 

@@ -22,26 +22,26 @@ MonoBehaviour:
     optionState: {fileID: 11400000, guid: 6be5ac5ddb08c6541b14ee3c9ff8557a, type: 2}
     Change:
       statusChange: 
-      teamChange: "\uCDA9\uC2E0/\uB3CC\uBA69\uC774/\uD559\uC0B4\uC790"
+      teamChange: 0/1/2
       itemChange: 
   - name: 
     optionText: "\uAC00\uB290\uB2E4\uB780 \uCDA9\uC2E0"
     optionState: {fileID: 11400000, guid: 6fe722c65a59577449bf11e1869ef8e9, type: 2}
     Change:
       statusChange: 
-      teamChange: "\uD30C\uAD34\uC790/\uB3CC\uBA69\uC774/\uD559\uC0B4\uC790"
+      teamChange: 0/1/3
       itemChange: 
   - name: 
     optionText: "\uAD74\uB7EC\uAC00\uB294 \uB3CC\uBA69\uC774"
     optionState: {fileID: 11400000, guid: 376e4bbeec2826f40886350dc947101c, type: 2}
     Change:
       statusChange: 
-      teamChange: "\uD30C\uAD34\uC790/\uCDA9\uC2E0/\uD559\uC0B4\uC790"
+      teamChange: 0/2/3
       itemChange: 
   - name: 
     optionText: "\uB86F\uB370\uB9AC\uC544 \uD559\uC0B4\uC790"
     optionState: {fileID: 11400000, guid: 06fe17e501441ce4d8e0d2412745484b, type: 2}
     Change:
       statusChange: 
-      teamChange: "\uD30C\uAD34\uC790/\uCDA9\uC2E0/\uB3CC\uBA69\uC774"
+      teamChange: 1/2/3
       itemChange: 

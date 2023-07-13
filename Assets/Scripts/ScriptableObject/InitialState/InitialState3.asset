@@ -15,22 +15,22 @@ MonoBehaviour:
   StateImage: {fileID: 0}
   StateText: "\uAC8C\uC784\uC774 \uC2DC\uC791\uB429\uB2C8\uB2E4"
   options:
-  - name: "\u3147\u3147"
-    optionText: 
+  - name: 
+    optionText: "\u3147\u3147"
     optionState: {fileID: 0}
     Change:
       statusChange: 
       teamChange: 
       itemChange: 
-  - name: "\u3147\u3131"
-    optionText: 
+  - name: 
+    optionText: "\u3147\u3131"
     optionState: {fileID: 0}
     Change:
       statusChange: 
       teamChange: 
       itemChange: 
-  - name: "\u3147\u314B"
-    optionText: 
+  - name: 
+    optionText: "\u3147\u314B"
     optionState: {fileID: 0}
     Change:
       statusChange: 

@@ -15,18 +15,24 @@ MonoBehaviour:
   StateImage: {fileID: 0}
   StateText: "\uB10C \uAC4D \uC788\uC5B4\uB77C"
   options:
-  - optionText: "\u3147\u314D"
-    optionState: {fileID: 0}
-    statusChange: 
-    teamChange: 
-    itemChange: 
-  - optionText: "\u3141\u3147"
-    optionState: {fileID: 0}
-    statusChange: 
-    teamChange: 
-    itemChange: 
-  - optionText: "\u3157"
-    optionState: {fileID: 0}
-    statusChange: 
-    teamChange: 
-    itemChange: 
+  - name: 
+    optionText: "\u3147\u314D"
+    optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
+    Change:
+      statusChange: 0/0/1
+      teamChange: 
+      itemChange: 1
+  - name: 
+    optionText: "\u3141\u3147"
+    optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
+    Change:
+      statusChange: -1/1/0
+      teamChange: 
+      itemChange: 2
+  - name: 
+    optionText: "\u3157"
+    optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
+    Change:
+      statusChange: 0/0/1
+      teamChange: 
+      itemChange: 3

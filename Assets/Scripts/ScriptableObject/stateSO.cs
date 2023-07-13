@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StateSO", menuName = "TextProject-evolve/StateSO", order = 0)]
+[CreateAssetMenu(fileName = "StateSO", menuName = "GameProject/StateSO", order = 0)]
 public class StateSO : ScriptableObject {
     
     [System.Serializable]
