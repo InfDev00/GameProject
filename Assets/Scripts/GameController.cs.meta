@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: db243cc1db3fcba489083d1819b21578
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - initialState: {fileID: 11400000, guid: f33732a45d22fe14ebba475475d202ae, type: 2}
+  - imageStatePrefab: {fileID: 4320967882246197274, guid: ed4688b0dc61acf4f9d6a57a1f415a7a, type: 3}
+  - textStatePrefab: {fileID: 4320967882246197274, guid: 86094e581f4b79d4682cf19091067dc4, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
