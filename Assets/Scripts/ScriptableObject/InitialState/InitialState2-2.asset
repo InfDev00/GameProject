@@ -14,25 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateImage: {fileID: 0}
   StateText: "\uB10C \uC57D\uD558\uB2C8\uAE4C \uC5EC\uAE30 \uB0A8\uC544\uC788\uC5B4"
+  DayUpdate: 2
   options:
   - name: 
     optionText: "\u3147\u3147"
     optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
     Change:
       statusChange: 1/1/1
-      teamChange: 
+      teamChange: 1
       itemChange: 1
   - name: 
     optionText: "\u3147\u314B"
     optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
     Change:
       statusChange: -1/-1/-1
-      teamChange: 
+      teamChange: 2
       itemChange: 2
   - name: 
     optionText: "\u3160"
     optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
     Change:
       statusChange: 
-      teamChange: 
+      teamChange: 4
       itemChange: 3

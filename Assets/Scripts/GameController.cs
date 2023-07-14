@@ -18,12 +18,16 @@ public class GameController : MonoBehaviour
     public int day;
     private UISetting UIScript;
     private StateSO.changes[] nxtChanges = new StateSO.changes[3];
+    private StatusSetting statusScript;
+    public GameObject popup;
 
     [HideInInspector]
     public bool[] optionTrigers = new bool[3];
+
     // Start is called before the first frame update
     void Start()
     {
+        statusScript = popup.GetComponent<StatusSetting>();
         UIScript = canvas.GetComponent<UISetting>();
         GameObject status = GameObject.Find("StatusPopup");
         if(status!=null) status.SetActive(false);
@@ -43,6 +47,8 @@ public class GameController : MonoBehaviour
         for(int i=0;i<3;i++) optionTrigers[i] = false;
     }
 
+
+
     void StateSetting()
     {
         Destroy(GameObject.Find("State"));
@@ -56,11 +62,13 @@ public class GameController : MonoBehaviour
         string[] optionTexts = new string[3];
         (optionTexts, nxtStates, nxtChanges) = GetRandomOption();
         state.GetComponent<StateSetting>().SetStateText(CurrentState.StateText,optionTexts);
+        day+=CurrentState.DayUpdate;
         UIScript.DayUpdate();
     }
 
     private (string[], StateSO[], StateSO.changes[]) GetRandomOption()
     {
+        //조건에 따른 변화 추가할 것
         string[] returnArray = new string[3];
         StateSO[] returnState = new StateSO[3];
         StateSO.changes[] returnChange = new StateSO.changes[3];
@@ -113,5 +121,4 @@ public class GameController : MonoBehaviour
 
         }
     }
-
 }

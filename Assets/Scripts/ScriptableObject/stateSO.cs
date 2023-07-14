@@ -26,6 +26,7 @@ public class StateSO : ScriptableObject {
     public Sprite StateImage;
     [TextArea]
     public string StateText;
+    public int DayUpdate;
 
     public Option[] options = new Option[3];
 

@@ -215,7 +215,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49413cdc45c4a4a42ba82c2e70e02b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 0
+  mainScript: {fileID: 0}
   statusPopup: {fileID: 1714403045}
 --- !u!1 &824498670
 GameObject:
@@ -1355,11 +1355,13 @@ MonoBehaviour:
   - {fileID: 23372831}
   - {fileID: 276811318}
   - {fileID: 1370978530}
+  teamMaxLength: 0
   items:
   - {fileID: 1025829904}
   - {fileID: 896967657}
   - {fileID: 2055179932}
-  MemberCode: {fileID: 11400000, guid: 2432e7ae2dd58df4180d3510b5c22645, type: 2}
+  HavingList: []
+  HavingCode: 
   ItemCode: {fileID: 11400000, guid: 7e479f11063402a48bcb1f6b6292734e, type: 2}
 --- !u!1 &896967657
 GameObject:
@@ -2267,7 +2269,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2736,7 +2738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1714403046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3213,6 +3215,7 @@ MonoBehaviour:
   textStatePrefab: {fileID: 4320967882246197274, guid: 86094e581f4b79d4682cf19091067dc4, type: 3}
   canvas: {fileID: 787785018}
   day: 1
+  popup: {fileID: 824498670}
   optionTrigers: 000000
 --- !u!1 &2034407779
 GameObject:

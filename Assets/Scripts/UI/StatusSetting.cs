@@ -17,27 +17,31 @@ public class StatusSetting : MonoBehaviour
     private int powerPoint;
     [SerializeField]
     private GameObject[] team;
-    private List <MemberCodeSO.Set> teamList;
+    private List <Dictionary<string, object>> teamList;
     private List <int> teamCode;
-    private int teamMaxLength;
+    public int teamMaxLength;
     [SerializeField]
     private GameObject[] items;
-    private List <string> HavingList;
+    private List <Dictionary<string, object>> HavingList;
     private List <int> HavingCode;
 
-    public MemberCodeSO MemberCode;
-    public ItemCodeSO ItemCode;
-    void Start() {
+    private List<Dictionary<string, object>> MemberCode;
+    private List<Dictionary<string, object>> ItemCode;
+
+    void Awake() {
         cooperationPoint = 0;
         preperationPoint = 0;
         powerPoint = 0;
 
         teamMaxLength = 3;
-        teamList = new List<MemberCodeSO.Set>();
+        teamList = new List<Dictionary<string, object>>();
         teamCode = new List<int>();
 
-        HavingList = new List<string>();
+        HavingList =  new List<Dictionary<string, object>>();
         HavingCode = new List<int>();
+
+        MemberCode = CSVReader.Read("Member");
+        ItemCode = CSVReader.Read("Item");
     }
 
     public void UpdateCooperation(int newPoint)
@@ -92,24 +96,29 @@ public class StatusSetting : MonoBehaviour
             powerPoint = newPoint;
     }
 
-    public void UpdateTeam(int[] newMemberCode) // 추가 제거 구분할 것
+    public void UpdateTeam(int[] newMemberCode)
     {
- 
+        for(int i=0;i<teamMaxLength;++i){
+            team[i].GetComponent<TextMeshProUGUI>().text = "";
+        }
         foreach (var code in newMemberCode)
         {
-            if(teamCode.Contains(code)){
-                teamList.RemoveAt(teamCode.IndexOf(code));
-                teamCode.Remove(code);
-            }
-
-            else if(teamCode.Count <= teamMaxLength){
-                MemberCodeSO.Set Member = MemberCode.code[code];
-                teamCode.Add(code);
-                teamList.Add(Member);
+            if(code < 0){ 
+                int _code = code*-1;
+                if(teamCode.Contains(_code)){
+                    teamList.RemoveAt(teamCode.IndexOf(_code));
+                    teamCode.Remove(_code);
+                }
+            }else{
+                if(!teamCode.Contains(code) && teamCode.Count <= teamMaxLength){
+                    var Member = MemberCode[code];
+                    teamCode.Add(code);
+                    teamList.Add(Member);
+                }
             }
 
             for(int i=0;i<teamCode.Count;++i){
-                team[i].GetComponent<TextMeshProUGUI>().text = teamList[i].name;
+                team[i].GetComponent<TextMeshProUGUI>().text = teamList[i]["Name"].ToString();
             }
         }
     }
@@ -118,21 +127,28 @@ public class StatusSetting : MonoBehaviour
     {
         foreach (var code in newItemCode)
         {
-            if(HavingCode.Contains(code)){
-                HavingList.RemoveAt(HavingCode.IndexOf(code));
-                HavingCode.Remove(code);
+            if(code < 0){ 
+                int _code = code*-1;
+                if(HavingCode.Contains(_code)){
+                    HavingList.RemoveAt(HavingCode.IndexOf(_code));
+                    HavingCode.Remove(_code);
+                }
+            }else{
+                if(!HavingCode.Contains(code)){
+                    var newItem = ItemCode[code];
+                    HavingCode.Add(code);
+                    HavingList.Add(newItem);
+                }
             }
-
-            else {
-                string item = ItemCode.code[code];
-                HavingCode.Add(code);
-                HavingList.Add(item);
+            
+            for(int i=0;i<3;++i){
+                items[i].GetComponent<TextMeshProUGUI>().text = "";
             }
 
             for(int i=0;i<HavingCode.Count;++i){
                 int idx = i%3;
                 string tmp = items[idx].GetComponent<TextMeshProUGUI>().text;
-                items[idx].GetComponent<TextMeshProUGUI>().text = $"{tmp}\n{HavingList[i]}";
+                items[idx].GetComponent<TextMeshProUGUI>().text = $"{tmp}\n{HavingList[i]["Name"].ToString()}";
             }
         }
     }

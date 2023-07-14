@@ -58,8 +58,10 @@ public class UISetting : MonoBehaviour
         if(newChange.teamChange!=""){
 
             string[] newMemberCode = newChange.teamChange.Split("/");
-            int[] _newMemberCode = new int[3];
-            for(int i=0;i<3;++i)_newMemberCode[i] = int.Parse(newMemberCode[i]);
+            int idx = newMemberCode.Length;
+            if(idx > statusScript.teamMaxLength)idx = statusScript.teamMaxLength;
+            int[] _newMemberCode = new int[idx];
+            for(int i=0;i<idx;++i)_newMemberCode[i] = int.Parse(newMemberCode[i]);
 
             statusScript.UpdateTeam(_newMemberCode);  
         }
