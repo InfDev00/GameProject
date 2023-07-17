@@ -1,6 +1,6 @@
 ﻿Name,Cooperation,Preparation,Power
-No.1,0,0,0
-No.2,0,0,0
-No.3,0,0,0
-No.4,0,0,0
-No.5,0,0,0
+Ash,1,0,0
+Ember,1,1,-1
+Lilith,0,1,0
+Dante,0,0,1
+Viper,-1,1,1
