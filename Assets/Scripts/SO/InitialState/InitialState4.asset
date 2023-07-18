@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a079469d13f2604fa4b2b582cd64217, type: 3}
+  m_Name: InitialState4
+  m_EditorClassIdentifier: 
+  StateImage: {fileID: 0}
+  StateText: "\uC73D.. \uC628 \uBAB8\uC774 \uC0C1\uCC98\uD22C\uC131\uC785\uB2C8\uB2E4.
+    \uBC14\uB2E5\uC73C\uB85C \uAD74\uB7EC\uB5A8\uC5B4\uC9C0\uACE0 \uC62C\uB77C\uAC08
+    \uAE38\uC774 \uB9C9\uB9C9\uD55C \uAC00\uC6B4\uB370 \uC800 \uBA40\uB9AC \uBC1D\uC740
+    \uBE5B\uC774 \uBCF4\uC785\uB2C8\uB2E4."
+  DayUpdate: 0
+  options:
+  - optionText: "\uC800\uAE30\uB85C \uAC00 \uBCF4\uC790"
+    optionState: {fileID: 11400000, guid: 718f751415639a74fb991ea4e5f2b689, type: 2}
+    Change:
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 
+  - optionText: "\uAC00\uC790"
+    optionState: {fileID: 11400000, guid: 718f751415639a74fb991ea4e5f2b689, type: 2}
+    Change:
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 
+  - optionText: "\uC77C\uB2E8 \uC0B4\uC544\uBCF4\uC790"
+    optionState: {fileID: 11400000, guid: 718f751415639a74fb991ea4e5f2b689, type: 2}
+    Change:
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 

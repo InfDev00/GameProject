@@ -10,30 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a079469d13f2604fa4b2b582cd64217, type: 3}
-  m_Name: InitialState2-2
+  m_Name: InitialState2
   m_EditorClassIdentifier: 
   StateImage: {fileID: 0}
-  StateText: "\uB10C \uC57D\uD558\uB2C8\uAE4C \uC5EC\uAE30 \uB0A8\uC544\uC788\uC5B4"
-  DayUpdate: 2
+  StateText: "\"\uC77C\uB2E8 \uACBD\uCC30\uC5D0 \uC5F0\uB77D\uD560 \uD14C\uB2C8\uAE4C
+    \uBE68\uB9AC \uAC14\uB2E4\uC640.\" "
+  DayUpdate: 0
   options:
-  - name: 
-    optionText: "\u3147\u3147"
+  - optionText: "\uAE08\uBC29 \uAC14\uB2E4\uC62C\uAC8C"
     optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
     Change:
-      statusChange: 1/1/1
-      teamChange: 1
-      itemChange: 1
-  - name: 
-    optionText: "\u3147\u314B"
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 
+  - optionText: "\uADF8\uB798"
     optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
     Change:
-      statusChange: -1/-1/-1
-      teamChange: 2
-      itemChange: 2
-  - name: 
-    optionText: "\u3160"
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 
+  - optionText: "\uC54C\uC558\uC5B4"
     optionState: {fileID: 11400000, guid: 23f2300b2914f4a4196fab87db020b3c, type: 2}
     Change:
-      statusChange: 
-      teamChange: 4
-      itemChange: 3
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 

@@ -6,21 +6,20 @@ using UnityEngine;
 public class StateSO : ScriptableObject {
     
     [System.Serializable]
-    public struct changes
+    public struct Set
     {
-        public string statusChange;
-        public string teamChange;
-        public string itemChange;
+        public string status;
+        public string team;
+        public string item;
     }
 
     [System.Serializable]
     public struct Option
     {
-        public string name;
         public string optionText;
         public StateSO optionState;
-        public changes Change;
-
+        public Set Change;
+        public Set Condition;
     }
 
     public Sprite StateImage;

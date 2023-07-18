@@ -17,13 +17,13 @@ public class StatusSetting : MonoBehaviour
     private int powerPoint;
     [SerializeField]
     private GameObject[] team;
-    private List <Dictionary<string, object>> teamList;
-    private List <int> teamCode;
+    private List<Dictionary<string, object>> teamList;
+    private List<int> teamCode;
     public int teamMaxLength;
     [SerializeField]
     private GameObject[] items;
-    private List <Dictionary<string, object>> HavingList;
-    private List <int> HavingCode;
+    private List<Dictionary<string, object>> HavingList;
+    private List<int> HavingCode;
 
     private List<Dictionary<string, object>> MemberCode;
     private List<Dictionary<string, object>> ItemCode;
@@ -37,16 +37,34 @@ public class StatusSetting : MonoBehaviour
         teamList = new List<Dictionary<string, object>>();
         teamCode = new List<int>();
 
-        HavingList =  new List<Dictionary<string, object>>();
+        HavingList = new List<Dictionary<string, object>>();
         HavingCode = new List<int>();
 
         MemberCode = CSVReader.Read("Member");
         ItemCode = CSVReader.Read("Item");
     }
 
+    public string GetStatus()
+    {
+        return $"{cooperationPoint}/{preperationPoint}/{powerPoint}";
+    }
+
+    public List<int> GetHavingCode()
+    {
+        return HavingCode;
+    }
+
+    public List<int> GetTeamCode()
+    {
+        return teamCode;
+    }
+
     public void UpdateCooperation(int newPoint)
-    {      
-        switch (newPoint)
+    {
+        cooperationPoint += newPoint;
+        if (cooperationPoint > 1) { cooperationPoint = 1; }
+        else if (cooperationPoint < -1) { cooperationPoint = -1; }
+        switch (cooperationPoint)
         {
             case 0:
                 cooperation.GetComponent<TextMeshProUGUI>().text = "중립";
@@ -58,13 +76,15 @@ public class StatusSetting : MonoBehaviour
                 cooperation.GetComponent<TextMeshProUGUI>().text = "배신";
                 break;
         }
-        cooperationPoint = newPoint;
     }
 
-    
+
     public void UpdatePreparation(int newPoint)
     {
-        switch (newPoint)
+        preperationPoint += newPoint;
+        if (preperationPoint > 1) { preperationPoint = 1; }
+        else if (preperationPoint < -1) {preperationPoint = -1; }
+        switch (preperationPoint)
         {
             case 0:
                 preperation.GetComponent<TextMeshProUGUI>().text = "중립";
@@ -76,12 +96,15 @@ public class StatusSetting : MonoBehaviour
                 preperation.GetComponent<TextMeshProUGUI>().text = "낭만";
                 break;
         }
-        preperationPoint = newPoint;
+
     }
 
     public void UpdatePower(int newPoint)
     {
-        switch (newPoint)
+        powerPoint += newPoint;
+        if (powerPoint > 1) { powerPoint = 1; }
+        else if (powerPoint < -1) { powerPoint = -1; }
+        switch (powerPoint)
         {
             case 0:
                 power.GetComponent<TextMeshProUGUI>().text = "중립";
@@ -90,10 +113,9 @@ public class StatusSetting : MonoBehaviour
                 power.GetComponent<TextMeshProUGUI>().text = "강력";
                 break;
             case -1:
-                power.GetComponent<TextMeshProUGUI>().text = "유연";
+                power.GetComponent<TextMeshProUGUI>().text = "연약";
                 break;
         }
-            powerPoint = newPoint;
     }
 
     public void UpdateTeam(int[] newMemberCode)
@@ -103,7 +125,7 @@ public class StatusSetting : MonoBehaviour
         }
         foreach (var code in newMemberCode)
         {
-            if(code < 0){ 
+            if (code < 0){ 
                 int _code = code*-1;
                 if(teamCode.Contains(_code)){
                     teamList.RemoveAt(teamCode.IndexOf(_code));
@@ -116,8 +138,7 @@ public class StatusSetting : MonoBehaviour
                     teamList.Add(Member);
                 }
             }
-
-            for(int i=0;i<teamCode.Count;++i){
+            for (int i=0;i<teamCode.Count;++i){
                 team[i].GetComponent<TextMeshProUGUI>().text = teamList[i]["Name"].ToString();
             }
         }

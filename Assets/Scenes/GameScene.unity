@@ -1360,9 +1360,6 @@ MonoBehaviour:
   - {fileID: 1025829904}
   - {fileID: 896967657}
   - {fileID: 2055179932}
-  HavingList: []
-  HavingCode: 
-  ItemCode: {fileID: 11400000, guid: 7e479f11063402a48bcb1f6b6292734e, type: 2}
 --- !u!1 &896967657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,7 +2735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1714403046
 RectTransform:
   m_ObjectHideFlags: 0

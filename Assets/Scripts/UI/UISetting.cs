@@ -41,33 +41,30 @@ public class UISetting : MonoBehaviour
         dayText.GetComponent<TextMeshProUGUI>().text = $"D+{mainScript.day}";
     }
 
-    public void StatusUpdate(StateSO.changes newChange)
+    public void StatusUpdate(StateSO.Set newChange)
     {
-        if(newChange.statusChange!=""){
-            string[] newStatus = newChange.statusChange.Split("/");
-            int newCooperation = newStatus[0][0]-'0';
-            int newPreparation = newStatus[1][0]-'0';
-            int newPower = newStatus[2][0]-'0';
+        if(newChange.status!=""){
+            string[] newStatus = newChange.status.Split("/");
+            int newCooperation = int.Parse(newStatus[0]);
+            int newPreparation = int.Parse(newStatus[1]);
+            int newPower = int.Parse(newStatus[2]);
 
             statusScript.UpdateCooperation(newCooperation);
             statusScript.UpdatePreparation(newPreparation);
             statusScript.UpdatePower(newPower);
         }
 
+        if(newChange.team!=""){
 
-        if(newChange.teamChange!=""){
-
-            string[] newMemberCode = newChange.teamChange.Split("/");
-            int idx = newMemberCode.Length;
-            if(idx > statusScript.teamMaxLength)idx = statusScript.teamMaxLength;
-            int[] _newMemberCode = new int[idx];
-            for(int i=0;i<idx;++i)_newMemberCode[i] = int.Parse(newMemberCode[i]);
+            string[] newMemberCode = newChange.team.Split("/");
+            int[] _newMemberCode = new int[newMemberCode.Length];
+            for(int i=0;i< newMemberCode.Length; ++i)_newMemberCode[i] = int.Parse(newMemberCode[i]);
 
             statusScript.UpdateTeam(_newMemberCode);  
         }
 
-        if(newChange.itemChange!=""){
-            string[] newItem = newChange.itemChange.Split("/");
+        if(newChange.item!=""){
+            string[] newItem = newChange.item.Split("/");
             int[] _newItem = new int[newItem.Length];
             for(int i=0;i<newItem.Length;++i)_newItem[i] = int.Parse(newItem[i]);
 

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a079469d13f2604fa4b2b582cd64217, type: 3}
+  m_Name: InitialState8
+  m_EditorClassIdentifier: 
+  StateImage: {fileID: 0}
+  StateText: "\"\uACFC\uD559\uC790\uB4E4\uC774 \uC5F0\uAD6C\uD588\uB294\uB370 \uADF8
+    \uC0AC\uB78C\uC774 \uD55C \uBC88\uB3C4 \uBCF8 \uC801 \uC5C6\uB294 \uBCD1\uADE0\uB4E4\uC744
+    \uAC00\uC9C0\uACE0 \uC788\uC5B4\uC11C \uADF8\uB807\uB370\uC694. \uBC31\uC2E0\uC774\uB098
+    \uCE58\uB8CC\uC81C\uB97C \uAC1C\uBC1C\uC5D0 \uC131\uACF5\uD588\uC9C0\uB9CC \uC774\uBBF8
+    \uB108\uBB34 \uB2A6\uC740 \uD6C4\uC600\uC5B4\uC694. \uC804 \uC138\uACC4 \uC0AC\uB78C\uB4E4\uC774
+    \uAC70\uC758 \uB2E4 \uC8FD\uC5C8\uAC70\uB4E0\uC694...\""
+  DayUpdate: 0
+  options:
+  - optionText: "\uADF8 \uC0AC\uB78C\uC740 \uC5B4\uB5BB\uAC8C \uB410\uC5B4?"
+    optionState: {fileID: 11400000, guid: 69e3f4ed7ac0fbc48af70b39b4d20508, type: 2}
+    Change:
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 
+  - optionText: "\uC2AC\uD508 \uC77C\uC774\uB124..."
+    optionState: {fileID: 11400000, guid: 69e3f4ed7ac0fbc48af70b39b4d20508, type: 2}
+    Change:
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 
+  - optionText: ...
+    optionState: {fileID: 11400000, guid: 69e3f4ed7ac0fbc48af70b39b4d20508, type: 2}
+    Change:
+      status: 
+      team: 
+      item: 
+    Condtion:
+      status: 
+      team: 
+      item: 

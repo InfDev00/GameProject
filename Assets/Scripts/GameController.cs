@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     public GameObject canvas;
     public int day;
     private UISetting UIScript;
-    private StateSO.changes[] nxtChanges = new StateSO.changes[3];
+    private StateSO.Set[] nxtChanges = new StateSO.Set[3];
     private StatusSetting statusScript;
     public GameObject popup;
 
@@ -66,24 +66,58 @@ public class GameController : MonoBehaviour
         UIScript.DayUpdate();
     }
 
-    private (string[], StateSO[], StateSO.changes[]) GetRandomOption()
+    private (string[], StateSO[], StateSO.Set[]) GetRandomOption()
     {
         //조건에 따른 변화 추가할 것
         string[] returnArray = new string[3];
         StateSO[] returnState = new StateSO[3];
-        StateSO.changes[] returnChange = new StateSO.changes[3];
-
-        int[] indexes = new int[CurrentState.options.Length];
-        for(int i=0;i<indexes.Length;++i) indexes[i] = i;
-        List<int> _indexes = new List<int>(indexes);
-        for(int i = 0;i<3;++i)
+        StateSO.Set[] returnChange = new StateSO.Set[3];
+        List<int> indexes = new List<int>();
+        for (int j = 0;j<CurrentState.options.Length;++j)
         {
-            var index = Random.Range(0,_indexes.Count);
-            var _index = _indexes[index];
+            var option = CurrentState.options[j];
+            bool isIn = true;
+            if(statusScript.GetStatus()!=option.Condition.status && option.Condition.status!="")isIn = false;
+            if(isIn && option.Condition.team!="")
+            {
+                string[] team = option.Condition.team.Split("/");
+                int[] _team = new int[team.Length];
+                for (int i = 0; i < team.Length; ++i) _team[i] = int.Parse(team[i]);
+                foreach (var member in team)
+                {
+                    if (!statusScript.GetTeamCode().Contains(int.Parse(member)))
+                    {
+                        isIn = false;
+                        break;
+                    }
+                }
+            }
+            if(isIn && option.Condition.item != "")
+            {
+                string[] item = option.Condition.item.Split("/");
+                int[] _item = new int[item.Length];
+                for (int i = 0; i < item.Length; ++i) _item[i] = int.Parse(item[i]);
+                foreach (var tmp in item)
+                {
+                    if (!statusScript.GetHavingCode().Contains(int.Parse(tmp)))
+                    {
+                        isIn = false;
+                        break;
+                    }
+                }
+            }
+            if(isIn) indexes.Add(j);
+
+        }
+
+        for (int i = 0;i<3;++i)
+        {
+            var index = Random.Range(0,indexes.Count);
+            var _index = indexes[index];
             returnArray[i] = CurrentState.options[_index].optionText;
             returnState[i] = CurrentState.options[_index].optionState;
             returnChange[i] = CurrentState.options[_index].Change;
-            _indexes.RemoveAt(index);
+            indexes.RemoveAt(index);
         }
 
         return (returnArray, returnState, returnChange);
