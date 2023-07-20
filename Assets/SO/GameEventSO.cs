@@ -9,6 +9,7 @@ public class GameEventSO : ScriptableObject
     [System.Serializable]
     public struct Set
     {
+        public int life;
         public int speech;
         public int force;
         public int tactics;
@@ -25,14 +26,9 @@ public class GameEventSO : ScriptableObject
     }
 
     public int dayUpdate;
-    [TextArea]
+    [TextArea(2,15)]
     public string stateText;
     public Button[] buttons;
-
-    public void Init()
-    {
-        dayUpdate = 0;
-    }
 
     public Button[] GetNextButtons()
     {
@@ -56,8 +52,8 @@ public class GameEventSO : ScriptableObject
         if(button.condition.speech > speech) { return false; }
         if(button.condition.force > force) { return false; }
         if(button.condition.tactics > tactics) {  return false; }
-
-        foreach(var member in team)
+        if(team.Count == 0 && button.condition.team.Length!=0) { return false; }
+        foreach(string member in team)
         {
             if (!Array.Exists(button.condition.team, x =>x == member)) { return false; }
         }

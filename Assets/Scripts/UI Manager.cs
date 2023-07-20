@@ -21,6 +21,11 @@ public class UIManager : MonoBehaviour
     public GameObject Team1;
     public GameObject Team2;
     public GameObject Team3;
+    [Header("Life")]
+    public GameObject Life1;
+    public GameObject Life2;
+    public GameObject Life3;
+
 
     void Start()
     {
@@ -42,6 +47,15 @@ public class UIManager : MonoBehaviour
         else Status.GetComponent<RectTransform>().anchoredPosition = new Vector3(0,-390,0);
     }
 
+    void Update() 
+    {
+        UpdateFood();
+        UpdateArmy();
+        UpdateDay();
+        UpdateStatus();
+        UpdateTeam();
+        UpdateLife();
+    }
 
     public void UpdateFood()
     {
@@ -87,6 +101,25 @@ public class UIManager : MonoBehaviour
                     Team3.GetComponent<TextMeshProUGUI>().text +=teamName;
                     break;
             }
+        }
+    }
+
+    public void UpdateLife() 
+    {
+        Life1.SetActive(true);
+        Life2.SetActive(true);
+        Life3.SetActive(true);
+        switch (GameManager.instance.GetLife())
+        {
+            case 3:
+                break;
+            case 2:
+                Life1.SetActive(false);
+                break;
+            case 1:
+                Life1.SetActive(false);
+                Life2.SetActive(false);
+                break;
         }
     }
 }

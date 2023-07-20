@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
+  m_Name: Initila3
+  m_EditorClassIdentifier: 
+  dayUpdate: 0
+  stateText: "\uC5B4\uBA38\uB2C8\uB294 \uADF8 \uB9D0\uC744 \uB9C8\uCE58\uACE0 \uC8FC\uC12C\uC8FC\uC12C
+    \uD3B8\uC9C0\uB97C \uD55C \uC7A5 \uAEBC\uB0B4\uC8FC\uC2ED\uB2C8\uB2E4.\n\"\uC5B4\uB5BB\uAC8C
+    \uB41C \uC77C\uC778\uC9C0\uB294 \uBAA8\uB974\uC9C0\uB9CC \uC544\uBC84\uC9C0\uAED8\uC11C\uB294
+    \uC544\uC9C1 \uC0B4\uC544\uACC4\uC2DC\uB2E8\uB2E4. \uBA70\uCE60 \uC804 \uB124
+    \uC544\uBC84\uC9C0\uC758 \uBC88\uD638\uB85C \uC5F0\uB77D\uC774 \uC654\uC5B4.
+    \uB3C4\uC6C0\uC744 \uC694\uCCAD\uD558\uB294 \uD3B8\uC9C0\uC600\uC9C0.\"\n\n\uC544\uBC84\uC9C0\uB97C
+    \uAD6C\uD558\uB7EC \uAC00\uACA0\uC2B5\uB2C8\uAE4C?"
+  buttons:
+  - text: "\uAC00\uC790"
+    condition:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      team: []
+    change:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      team: []
+    nxtGameEvent: {fileID: 11400000, guid: d4b996a44bbbb8f4595f3607ac25c673, type: 2}
+  - text: "\uB9D0\uC790"
+    condition:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      team: []
+    change:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      team: []
+    nxtGameEvent: {fileID: 11400000, guid: 82297ba599bbfa84081b2baaa732c84b, type: 2}

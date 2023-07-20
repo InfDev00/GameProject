@@ -31,19 +31,15 @@ public class Group
     }
 
     public void AddFood(int food) { this.food += food; }
-    public void SubFood(int food) { this.food -= food; }
     public int GetFood() { return this.food;}
 
     public void AddArmy(int army) { this.army += army; }
-    public void SubArmy(int army) { this.army -= army; }
     public int GetArmy() { return this.army;}
 
     public void AddFriendship(int friendship) { this.friendship += friendship; }
-    public void SubFriendship(int friendship) { this.friendship -= friendship; }
     public int GetFriendship() { return this.friendship;}
 
     public void AddCounterProb(int counterProb) { this.counterProb += counterProb; }
-    public void SubCounterProb(int counterProb) { this.counterProb -= counterProb; }
     public int GetCounterProb() { return this.counterProb;}
 
     public void AddMember(string member) { this.member.Add(member);}

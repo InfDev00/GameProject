@@ -14,6 +14,7 @@ public class ButtonManager : MonoBehaviour
 
     public void SetButton(GameEventSO.Button[] buttons)
     {
+
         this.nxtButtons = buttons;
         switch (buttons.Length)
         {
@@ -40,8 +41,28 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    public void ClickBtn0() { GameManager.instance.SetBtnTriger(0); }
-    public void ClickBtn1() { GameManager.instance.SetBtnTriger(1); }
-    public void ClickBtn2() { GameManager.instance.SetBtnTriger(2); }
+    void ButtonEvent(int buttonIndex)
+    {
+        if (nxtButtons[buttonIndex].text.Contains("[¿£µù]"))
+        {
+            GameManager.instance.GameEnding();
+            return;
+        }
+        GameManager.instance.AddLife(this.nxtButtons[buttonIndex].change.life);
+        GameManager.instance.AddSpeech(this.nxtButtons[buttonIndex].change.speech);
+        GameManager.instance.AddForce(this.nxtButtons[buttonIndex].change.force);
+        GameManager.instance.AddTactics(this.nxtButtons[buttonIndex].change.tactics);
+        foreach (var member in this.nxtButtons[buttonIndex].change.team)
+        {
+            if(!GameManager.instance.isTeam(member)) GameManager.instance.AddTeam(member);
+        }
+
+
+        GameManager.instance.SetGameEvent(this.nxtButtons[buttonIndex].nxtGameEvent);
+    }
+
+    public void ClickTopButton() { ButtonEvent(2); }
+    public void ClickMidButton() { ButtonEvent(1); }
+    public void ClickBotButton() { ButtonEvent(0); }
 
 }

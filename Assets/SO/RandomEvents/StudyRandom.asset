@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
+  m_Name: StudyRandom
+  m_EditorClassIdentifier: 
+  dayUpdate: 1
+  stateText: "\uC624\uB298 \uD560 \uD589\uB3D9\uC744 \uACE0\uB974\uC2DC\uC624"
+  buttons:
+  - text: "\uBB34\uB825 \uD0A4\uC6B0\uAE30"
+    condition:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      team: []
+    change:
+      life: 0
+      speech: 0
+      force: 5
+      tactics: 0
+      team: []
+    nxtGameEvent: {fileID: 0}
+  - text: "\uD654\uC220 \uD0A4\uC6B0\uAE30"
+    condition:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      team: []
+    change:
+      life: 0
+      speech: 5
+      force: 0
+      tactics: 0
+      team: []
+    nxtGameEvent: {fileID: 0}
+  - text: "\uC804\uC220 \uD0A4\uC6B0\uAE30"
+    condition:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      team: []
+    change:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 5
+      team: []
+    nxtGameEvent: {fileID: 0}

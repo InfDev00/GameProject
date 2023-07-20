@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
-  m_Name: GameEventSO
+  m_Name: WeeklyDefault
   m_EditorClassIdentifier: 
   dayUpdate: 0
-  stateText: "\uC774\uBC88 \uC8FC\uB294 \uBB34\uC5C7\uC744 \uD560\uAE4C?"
+  stateText: "\uC774\uBC88\uC8FC\uB294 \uBAA8\uD558\uC9C0"
   buttons:
-  - text: "\uC6B4\uB3D9"
+  - text: "\u3160\u3160"
     condition:
+      life: 0
       speech: 0
       force: 0
       tactics: 0
       team: []
     change:
+      life: 0
       speech: 0
       force: 0
       tactics: 0
