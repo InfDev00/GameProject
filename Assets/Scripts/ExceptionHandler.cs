@@ -8,20 +8,16 @@ public class ExceptionHandler
 
     public void EventThrow(GameEventSO gameEvent)
     {
-        if(GameManager.instance.GetLife() == 0) throw new Exception("LifeZeroException");
 
-        else if (gameEvent==null) throw new Exception("NullException");
+        if (gameEvent==null) throw new Exception("NullException");
 
         else if(GameManager.instance.GetDay()% 7 == 6) throw new Exception("WeeklyEventException");
     }
 
     public void EventCatch(Exception exception) 
     {
-        switch(exception.Message)
+        switch (exception.Message)
         {
-            case "LifeZeroException":
-                GameManager.instance.GameEnding();
-                break;
             case "NullException":
                 var randomEvent = GameManager.instance.GetRandomEvent();
                 if (randomEvent.Length == 0)

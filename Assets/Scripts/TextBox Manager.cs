@@ -6,16 +6,15 @@ using TMPro;
 
 public class TextBoxManager : MonoBehaviour
 {
-    public GameObject StateText;
+    public GameObject TextBox;
 
     public void SetTextBox(string stateText)
     {
-        int GameYear = System.DateTime.Now.Year + 1000;
-        int playerAge = GameYear % 100;
-        playerAge = playerAge < 20 ? 20 : playerAge;
-        stateText = stateText.Replace("[나이]", $"{playerAge}");
-        stateText = stateText.Replace("[연도]", $"{GameYear}");
+        if (stateText.Contains("<전투>")) GameManager.instance.SetCurrentState("Battle");
+        else if (stateText.Contains("<전직>")) GameManager.instance.SetCurrentState("Job");
+        else GameManager.instance.SetCurrentState("Default");
+        stateText = stateText.Replace("[적]", $"{GameManager.instance.GetCurrentEnemy()}");
 
-        StateText.GetComponent<TextMeshProUGUI>().text = stateText;
+        TextBox.GetComponent<TextMeshProUGUI>().text = stateText;
     }
 }

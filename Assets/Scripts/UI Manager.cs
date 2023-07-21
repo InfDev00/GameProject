@@ -14,30 +14,37 @@ public class UIManager : MonoBehaviour
     public GameObject DayText;
     [Header("Status")]
     public GameObject Status;
-    private GameObject SpeechText;
-    private GameObject ForceText;
-    private GameObject TacticsText;
-    [Header("Team")]
-    public GameObject Team1;
-    public GameObject Team2;
-    public GameObject Team3;
-    [Header("Life")]
-    public GameObject Life1;
-    public GameObject Life2;
-    public GameObject Life3;
+    private GameObject LevelText;
+    private GameObject JobText;
+    [Header("Skill")]
+    private GameObject Skill1;
+    private GameObject Skill2;
+    private GameObject Skill3;
+    [Header("Item")]
+    private GameObject Item1;
+    private GameObject Item2;
+    private GameObject Item3;
+
 
 
     void Start()
     {
-        SpeechText = Status.transform.Find("SpeechText").gameObject;
-        ForceText = Status.transform.Find("ForceText").gameObject;
-        TacticsText = Status.transform.Find("TacticsText").gameObject;
+        LevelText = Status.transform.Find("LevelText").gameObject;
+        JobText = Status.transform.Find("JobText").gameObject;
+
+        Skill1 = Status.transform.Find("Skill1").gameObject;
+        Skill2 = Status.transform.Find("Skill2").gameObject;
+        Skill3 = Status.transform.Find("Skill3").gameObject;
+
+        Item1 = Status.transform.Find("Item1").gameObject;
+        Item2 = Status.transform.Find("Item2").gameObject;
+        Item3 = Status.transform.Find("Item3").gameObject;
 
         UpdateFood();
-        UpdateArmy();
+        UpdateGold();
         UpdateDay();
         UpdateStatus();
-        UpdateTeam();
+        UpdateItem();
     }
 
     public void StatusPopUp()
@@ -50,11 +57,10 @@ public class UIManager : MonoBehaviour
     void Update() 
     {
         UpdateFood();
-        UpdateArmy();
+        UpdateGold();
         UpdateDay();
         UpdateStatus();
-        UpdateTeam();
-        UpdateLife();
+        UpdateItem();
     }
 
     public void UpdateFood()
@@ -62,9 +68,9 @@ public class UIManager : MonoBehaviour
         FoodText.GetComponent<TextMeshProUGUI>().text = $"식량 : {GameManager.instance.GetFood()}";
     }
 
-    public void UpdateArmy()
+    public void UpdateGold()
     {
-        ArmyText.GetComponent<TextMeshProUGUI>().text = $"병력 : {GameManager.instance.GetArmy()}";
+        ArmyText.GetComponent<TextMeshProUGUI>().text = $"골드 : {GameManager.instance.GetGold()}";
     }
 
     public void UpdateDay()
@@ -74,52 +80,32 @@ public class UIManager : MonoBehaviour
 
     public void UpdateStatus()
     {
-        SpeechText.GetComponent<TextMeshProUGUI>().text = $"화술 : {GameManager.instance.GetSpeech()}";
-        ForceText.GetComponent<TextMeshProUGUI>().text = $"무력 : {GameManager.instance.GetForce()}";
-        TacticsText.GetComponent<TextMeshProUGUI>().text = $"전술 : {GameManager.instance.GetTactics()}";
+        LevelText.GetComponent<TextMeshProUGUI>().text = $"Level : {GameManager.instance.GetLevel()}";
+        JobText.GetComponent<TextMeshProUGUI>().text = GameManager.instance.GetJob();
     }
 
-    public void UpdateTeam()
+    public void UpdateItem()
     {
-        Team1.GetComponent<TextMeshProUGUI>().text = "";
-        Team2.GetComponent<TextMeshProUGUI>().text = "";
-        Team3.GetComponent<TextMeshProUGUI>().text = "";
+        Item1.GetComponent<TextMeshProUGUI>().text = "";
+        Item2.GetComponent<TextMeshProUGUI>().text = "";
+        Item3.GetComponent<TextMeshProUGUI>().text = "";
 
-        List<string> team = GameManager.instance.GetTeam();
+        List<string> item = GameManager.instance.GetItem();
         int idx = 0;
-        foreach (string teamName in team)
+        foreach (string itemName in item)
         {
             switch (idx % 3)
             {
                 case 0:
-                    Team1.GetComponent<TextMeshProUGUI>().text += teamName;
+                    Item1.GetComponent<TextMeshProUGUI>().text += itemName;
                     break;
                 case 1:
-                    Team2.GetComponent<TextMeshProUGUI>().text +=teamName;
+                    Item2.GetComponent<TextMeshProUGUI>().text +=itemName;
                     break;
                 case 2:
-                    Team3.GetComponent<TextMeshProUGUI>().text +=teamName;
+                    Item3.GetComponent<TextMeshProUGUI>().text +=itemName;
                     break;
             }
-        }
-    }
-
-    public void UpdateLife() 
-    {
-        Life1.SetActive(true);
-        Life2.SetActive(true);
-        Life3.SetActive(true);
-        switch (GameManager.instance.GetLife())
-        {
-            case 3:
-                break;
-            case 2:
-                Life1.SetActive(false);
-                break;
-            case 1:
-                Life1.SetActive(false);
-                Life2.SetActive(false);
-                break;
         }
     }
 }

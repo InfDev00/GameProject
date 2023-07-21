@@ -12,26 +12,27 @@ public class ButtonManager : MonoBehaviour
 
     private GameEventSO.Button[] nxtButtons;
 
-    public void SetButton(GameEventSO.Button[] buttons)
+    public void SetButton(GameEventSO.Button[] buttons, GameEventSO gameEvent)
     {
+        if (GameManager.instance.GetCurrentState() == "Default") this.nxtButtons = gameEvent.GetNextButtons();
 
         this.nxtButtons = buttons;
-        switch (buttons.Length)
+        switch (this.nxtButtons.Length)
         {
             case 3:
-                TopBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = buttons[2].text;
-                MidBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = buttons[1].text;
-                BotBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = buttons[0].text;
+                TopBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = nxtButtons[2].text;
+                MidBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = nxtButtons[1].text;
+                BotBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = nxtButtons[0].text;
                 break;
             case 2:
                 TopBtn.SetActive(false);
-                MidBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = buttons[1].text;
-                BotBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = buttons[0].text;
+                MidBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = nxtButtons[1].text;
+                BotBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = nxtButtons[0].text;
                 break;
             case 1:
                 TopBtn.SetActive(false);
                 MidBtn.SetActive(false);
-                BotBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = buttons[0].text;
+                BotBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = nxtButtons[0].text;
                 break;
             case 0:
                 TopBtn.SetActive(false);
@@ -43,24 +44,6 @@ public class ButtonManager : MonoBehaviour
 
     void ButtonEvent(int buttonIndex)
     {
-        if (nxtButtons[buttonIndex].text.Contains("[¿£µù]"))
-        {
-            GameManager.instance.GameEnding();
-            return;
-        }
-        GameManager.instance.AddLife(this.nxtButtons[buttonIndex].change.life);
-        GameManager.instance.AddSpeech(this.nxtButtons[buttonIndex].change.speech);
-        GameManager.instance.AddForce(this.nxtButtons[buttonIndex].change.force);
-        GameManager.instance.AddTactics(this.nxtButtons[buttonIndex].change.tactics);
-        GameManager.instance.AddFood(this.nxtButtons[buttonIndex].change.food);
-        GameManager.instance.AddArmy(this.nxtButtons[buttonIndex].change.army);
-
-        foreach (var member in this.nxtButtons[buttonIndex].change.team)
-        {
-            if(!GameManager.instance.isTeam(member)) GameManager.instance.AddTeam(member);
-        }
-
-
         GameManager.instance.SetGameEvent(this.nxtButtons[buttonIndex].nxtGameEvent);
     }
 

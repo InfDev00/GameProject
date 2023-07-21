@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
-  m_Name: Ending
+  m_Script: {fileID: 11500000, guid: c46877b47133686449efac88e7660b40, type: 3}
+  m_Name: GameEventSO
   m_EditorClassIdentifier: 
-  dayUpdate: 0
-  stateText: "\uD589\uBCF5\uD558\uAC8C \uC0B4\uC558\uB2F5\uB2C8\uB2E4\uC544"
-  buttons: []
+  stateText: "\uC2DC\uC791"
+  buttons:
+  - text: 1
+    nxtGameEvent: {fileID: 0}
+  - text: 2
+    nxtGameEvent: {fileID: 0}

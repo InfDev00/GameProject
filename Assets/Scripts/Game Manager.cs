@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Initial Values")]
     public GameEventSO initialGameEvent;
+    private List<string> jobs = new List<string>(new string[] {"aa", "bb"});
 
     [Header("WeeklyEvent")]
     public GameEventSO[] weeklyEventValues;
@@ -25,13 +26,15 @@ public class GameManager : MonoBehaviour
     private GameObject button;
 
     [Header("PlayerInfo")]
-    private Group player;
     private int day;
-    private int speech;
-    private int force;
-    private int tactics;
-    private int life;
-    private List<string> team;
+    private int food;
+    private int gold;
+    private int level;
+    private string job;
+    private List<string> skill;
+    private List<string> item;
+    private string currentEnemy;
+    public string currentstate;
 
     public static GameManager instance;
     private ExceptionHandler exceptionHandler = new ExceptionHandler();
@@ -48,16 +51,16 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        player = new Group(0,0);
         day = 0;
+        food = 0;
+        gold = 0;
+        level = 1;
+        job = "ÃÊº¸ÀÚ";
+        currentEnemy = "1";
+        currentstate = "Default";
 
-        speech = 0;
-        force = 0;
-        tactics = 0;
-        life = 3;
-
-        team = new List<string>();
-
+        skill = new List<string>();
+        item = new List<string>();
         for (int i = 0; i < weeklyEventKeys.Length; ++i) AddWeeklyEvent(weeklyEventKeys[i], weeklyEventValues[i]);
 
         SetGameEvent(initialGameEvent);
@@ -76,10 +79,11 @@ public class GameManager : MonoBehaviour
             button.name = "Button";
             textBox.name = "TextBox";
 
+            textBox.GetComponent<TextBoxManager>().SetTextBox(gameEvent.stateText);            
+            button.GetComponent<ButtonManager>().SetButton(gameEvent.GetNextButtons(), gameEvent);
 
-            button.GetComponent<ButtonManager>().SetButton(gameEvent.GetNextButtons());
-            textBox.GetComponent<TextBoxManager>().SetTextBox(gameEvent.stateText);
-            AddDay(gameEvent.dayUpdate);
+
+            AddDay(1);
         }
         catch(Exception e) 
         {
@@ -100,28 +104,33 @@ public class GameManager : MonoBehaviour
     public void AddDay(int day) { this.day += day; }
     public int GetDay() { return day; }
 
-    public void AddFood(int food) { this.player.AddFood(food); }
-    public int GetFood() { return this.player.GetFood(); }
+    public void AddFood(int food) { this.food+=food; }
+    public int GetFood() { return this.food; }
 
-    public void AddArmy(int army) { this.player.AddArmy(army); }
-    public int GetArmy() { return this.player.GetArmy(); }
+    public void AddGold(int gold) { this.gold+=gold; }
+    public int GetGold() { return this.gold; }
 
-    public void AddSpeech(int speech) { this.speech += speech; }
-    public int GetTactics() { return this.tactics; }
+    public void AddLevel(int level) { this.level += level;}
+    public int GetLevel() { return this.level;}
 
-    public void AddForce(int force) {  this.force += force; }
-    public int GetForce() { return this.force; }
+    public void SetJob(string job) { this.job = job; }
+    public string GetJob() { return this.job; }
 
-    public void AddTactics(int tactics) { this.tactics += tactics; }
-    public int GetSpeech() { return this.speech;}
+    public void AddSkill(string skill) { this.skill.Add(skill); }
+    public void RemoveSkill(string skill) { this.skill.Remove(skill); }
+    public List<string> GetSkill() { return this.skill;}
+    public bool isSkill(string skill) { return this.skill.Contains(skill); }
 
-    public void AddTeam(string team) { this.team.Add(team); }
-    public void RemoveTeam(string team) { this.team.Remove(team); }
-    public List<string> GetTeam() { return this.team;}
-    public bool isTeam(string team) { return this.team.Contains(team); }
+    public void AddItem(string item) { this.item.Add(item); }
+    public void RemoveItem(string item) { this.item.Remove(item); }
+    public List<string> GetItem() { return this.item; }
+    public bool isItem(string item) { return this.item.Contains(item); }
 
-    public void AddLife(int life) { this.life += life; }
-    public int GetLife() { return this.life; }
+    public void SetCurrentEnemy(string enemy) { this.currentEnemy = enemy; }
+    public string GetCurrentEnemy() { return this.currentEnemy; }
+
+    public void SetCurrentState(string state) { this.currentstate = state; }
+    public string GetCurrentState() { return this.currentstate; }
 
     public void AddWeeklyEvent(string key, GameEventSO value) { this.weeklyEvent.Add(key, value); }
     public void RemoveWeeklyEvent(string key) { this.weeklyEvent.Remove(key); }
