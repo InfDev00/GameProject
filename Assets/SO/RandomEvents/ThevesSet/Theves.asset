@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
+  m_Name: Theves
+  m_EditorClassIdentifier: 
+  dayUpdate: 1
+  stateText: "\uC557! \uAE38\uC5D0\uC11C \uD55C \uBB34\uB9AC\uC758 \uB3C4\uC801\uB54C\uB97C
+    \uB9CC\uB0AC\uC2B5\uB2C8\uB2E4. \uC5B4\uB5BB\uAC8C \uD560\uAE4C\uC694?"
+  buttons:
+  - text: "\uBD80\uD558\uB85C \uB9CC\uB4E0\uB2E4"
+    condition:
+      life: 0
+      speech: 0
+      force: 10
+      tactics: 0
+      food: 0
+      army: 0
+      team: []
+    change:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 10
+      team:
+      - "\uCD5C\uD544\uBD09"
+    nxtGameEvent: {fileID: 11400000, guid: f0947c62ca3eabd499ad76f0ad4a7590, type: 2}
+  - text: "\uB3C4\uB9DD\uCE5C\uB2E4"
+    condition:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      team: []
+    change:
+      life: -1
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      team: []
+    nxtGameEvent: {fileID: 11400000, guid: 09375706a70819043b6f65a13f986634, type: 2}

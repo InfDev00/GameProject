@@ -13,6 +13,8 @@ public class GameEventSO : ScriptableObject
         public int speech;
         public int force;
         public int tactics;
+        public int food;
+        public int army;
         public string[] team;
     }
 
@@ -35,27 +37,32 @@ public class GameEventSO : ScriptableObject
         int speech = GameManager.instance.GetSpeech();
         int force = GameManager.instance.GetForce();
         int tactics = GameManager.instance.GetTactics();
+        int food = GameManager.instance.GetFood();
+        int army = GameManager.instance.GetArmy();
         List<string> team = GameManager.instance.GetTeam();
 
         List<Button> nextButtons = new List<Button> ();
 
         foreach (Button button in buttons) 
         {
-            if(isMeet(button, speech, force, tactics, team)) { nextButtons.Add(button); }
+            if(isMeet(button, speech, force, tactics, food, army, team)) { nextButtons.Add(button); }
         }
 
         return nextButtons.ToArray();
     }
 
-    bool isMeet(Button button, int speech, int force, int tactics, List<string> team)
+    bool isMeet(Button button, int speech, int force, int tactics, int food, int army, List<string> team)
     {
         if(button.condition.speech > speech) { return false; }
         if(button.condition.force > force) { return false; }
         if(button.condition.tactics > tactics) {  return false; }
+        if(button.condition.food > food) { return false; }
+        if(button.condition.army > army) { return false; }
+
         if(team.Count == 0 && button.condition.team.Length!=0) { return false; }
-        foreach(string member in team)
+        foreach(string member in button.condition.team)
         {
-            if (!Array.Exists(button.condition.team, x =>x == member)) { return false; }
+            if (!team.Contains(member)) { return false; }
         }
 
         return true;

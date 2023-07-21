@@ -8,32 +8,31 @@ public class ExceptionHandler
 
     public void EventThrow(GameEventSO gameEvent)
     {
-        if (gameEvent==null)
-        {
-            throw new Exception("NullExeption");
-        }
+        if(GameManager.instance.GetLife() == 0) throw new Exception("LifeZeroException");
 
-        else if(GameManager.instance.GetDay()% 7 == 6)
-        {
-            throw new Exception("WeeklyEventExeption");
-        }
+        else if (gameEvent==null) throw new Exception("NullException");
+
+        else if(GameManager.instance.GetDay()% 7 == 6) throw new Exception("WeeklyEventException");
     }
 
     public void EventCatch(Exception exception) 
     {
         switch(exception.Message)
         {
-            case "NullExeption":
+            case "LifeZeroException":
+                GameManager.instance.GameEnding();
+                break;
+            case "NullException":
                 var randomEvent = GameManager.instance.GetRandomEvent();
                 if (randomEvent.Length == 0)
                 {
-                    Debug.LogWarning("NullExeption Activated");
+                    Debug.LogWarning("NullException Activated");
                     break;
                 }
                 int key = UnityEngine.Random.Range(0, randomEvent.Length);
                 GameManager.instance.SetGameEvent(randomEvent[key]);
                 break;
-            case "WeeklyEventExeption":
+            case "WeeklyEventException":
                 GameManager.instance.AddDay(1);
                 var weeklyEvent = GameManager.instance.GetWeeklyEvent();
                 try
@@ -46,7 +45,5 @@ public class ExceptionHandler
                 }
                 break;
         }
-
-
     }
 }

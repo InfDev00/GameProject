@@ -1435,14 +1435,13 @@ MonoBehaviour:
   textBoxPrefab: {fileID: 1196610377139314383, guid: 9285d5db5e865e8419bb596275713c8d, type: 3}
   buttonPrefab: {fileID: 1196610377139314383, guid: d1b7aae54e901ca489373395a064f8d0, type: 3}
   initialGameEvent: {fileID: 11400000, guid: 8dc7d1220fec1564c9578119d6bfd68a, type: 2}
+  ending: {fileID: 11400000, guid: 5e78639c026db704580752a4b4959ed8, type: 2}
   weeklyEventValues:
   - {fileID: 11400000, guid: 7659f0c194acf414dbcdbcb7699c06b0, type: 2}
   weeklyEventKeys:
   - DefaultEvent
   randomEvents:
   - {fileID: 11400000, guid: a68b1749e966b9b43adcd2966d27ed7f, type: 2}
-  - {fileID: 11400000, guid: d4b996a44bbbb8f4595f3607ac25c673, type: 2}
-  - {fileID: 11400000, guid: d4b996a44bbbb8f4595f3607ac25c673, type: 2}
   - {fileID: 11400000, guid: d4b996a44bbbb8f4595f3607ac25c673, type: 2}
 --- !u!1 &856060177
 GameObject:

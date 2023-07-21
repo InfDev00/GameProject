@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: StudyRandom
   m_EditorClassIdentifier: 
   dayUpdate: 1
-  stateText: "\uC624\uB298 \uD560 \uD589\uB3D9\uC744 \uACE0\uB974\uC2DC\uC624"
+  stateText: "\uC624\uB298\uC740 \uB0A0\uC774 \uC88B\uC9C0 \uC54A\uC544\uC11C \uC9D1\uC5D0\uC11C
+    \uB3C5\uC11C\uB97C \uD569\uB2C8\uB2E4. \uBB34\uC2A8 \uCC45\uC744 \uC77D\uC744\uAE4C\uC694?"
   buttons:
-  - text: "\uBB34\uB825 \uD0A4\uC6B0\uAE30"
+  - text: "\uC2F8\uC6C0 \uC798\uD558\uB294 \uBC95"
     condition:
       life: 0
       speech: 0
@@ -28,8 +29,8 @@ MonoBehaviour:
       force: 5
       tactics: 0
       team: []
-    nxtGameEvent: {fileID: 0}
-  - text: "\uD654\uC220 \uD0A4\uC6B0\uAE30"
+    nxtGameEvent: {fileID: 11400000, guid: 43aa2b045fe197e499c4b58cfb4e9b1c, type: 2}
+  - text: "\uB9D0\uC758 \uB2EC\uC778"
     condition:
       life: 0
       speech: 0
@@ -42,8 +43,8 @@ MonoBehaviour:
       force: 0
       tactics: 0
       team: []
-    nxtGameEvent: {fileID: 0}
-  - text: "\uC804\uC220 \uD0A4\uC6B0\uAE30"
+    nxtGameEvent: {fileID: 11400000, guid: 6d3b3e9ca0753644f9cb51c220b900f7, type: 2}
+  - text: "\uC0BC\uAD6D\uC9C0"
     condition:
       life: 0
       speech: 0
@@ -56,4 +57,4 @@ MonoBehaviour:
       force: 0
       tactics: 5
       team: []
-    nxtGameEvent: {fileID: 0}
+    nxtGameEvent: {fileID: 11400000, guid: fd1dd5262843bb24ebd5e3ae117e3d86, type: 2}

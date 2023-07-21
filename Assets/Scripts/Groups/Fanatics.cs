@@ -12,10 +12,6 @@ public class Fanatics : Group
         this.friendship = friendship;
         this.member = new List<string>(){"fanatic1", "fanatic2"};
         this.counterProb = 30;
-    }
-
-    public override void Attack(Group enemy)
-    {
-
+        this.attackProb = 10;
     }
 }

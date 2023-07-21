@@ -52,6 +52,9 @@ public class ButtonManager : MonoBehaviour
         GameManager.instance.AddSpeech(this.nxtButtons[buttonIndex].change.speech);
         GameManager.instance.AddForce(this.nxtButtons[buttonIndex].change.force);
         GameManager.instance.AddTactics(this.nxtButtons[buttonIndex].change.tactics);
+        GameManager.instance.AddFood(this.nxtButtons[buttonIndex].change.food);
+        GameManager.instance.AddArmy(this.nxtButtons[buttonIndex].change.army);
+
         foreach (var member in this.nxtButtons[buttonIndex].change.team)
         {
             if(!GameManager.instance.isTeam(member)) GameManager.instance.AddTeam(member);

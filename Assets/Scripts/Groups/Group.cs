@@ -8,6 +8,7 @@ public class Group
     protected int army;
     protected int friendship;
     protected int counterProb;
+    protected int attackProb;
     protected List<string> member;
 
     public Group() { }
@@ -22,7 +23,11 @@ public class Group
     {
         if (enemy == null) return;
 
-        Debug.Log("Group °ø°ÝÇÔ");
+        int attackArmy = (int)(this.army / 5);
+        if(attackArmy < 10) return;
+        
+
+
         int revengedProb = Random.Range(0, 100);
         if(revengedProb < enemy.GetCounterProb()) 
         {
@@ -41,6 +46,9 @@ public class Group
 
     public void AddCounterProb(int counterProb) { this.counterProb += counterProb; }
     public int GetCounterProb() { return this.counterProb;}
+
+    public void AddAttackProb(int attackProb) { this.attackProb += attackProb; }
+    public int GetAttackProb() { return this.attackProb;}
 
     public void AddMember(string member) { this.member.Add(member);}
     public void RemoveMember(string member) { this.member.Remove(member);}

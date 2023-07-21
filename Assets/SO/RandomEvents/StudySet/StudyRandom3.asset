@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
-  m_Name: FakeRandom
+  m_Name: StudyRandom3
   m_EditorClassIdentifier: 
-  dayUpdate: 1
-  stateText: "\uAE5C\uC9DD \uB180\uB790\uC9C0?"
+  dayUpdate: 0
+  stateText: "\uC81C\uAC08\uB7C9\uC758 \uAE38\uC744 \uAC77\uACE0 \uC2F6\uC5B4\uC9C0\uB294
+    \uD558\uB8E8\uC785\uB2C8\uB2E4."
   buttons:
-  - text: "\uC7A5\uB09C\uC774\uC9C0\uB871"
+  - text: "\uD760"
     condition:
       life: 0
       speech: 0
