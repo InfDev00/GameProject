@@ -37,6 +37,8 @@ public class ExceptionHandler
                 var weeklyEvent = GameManager.instance.GetWeeklyEvent();
                 try
                 {
+                    //weeklyevent를 여러개 설정해놓고 일주일마다 랜덤하게 나오게 할 수 있을듯?
+                    //현재는 무조건 DefaultEvent를 박아넣고있음
                     GameManager.instance.SetGameEvent(weeklyEvent["DefaultEvent"]);
                 }
                 catch (Exception e)
