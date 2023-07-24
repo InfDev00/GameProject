@@ -27,13 +27,18 @@ MonoBehaviour:
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     change:
       life: 0
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy:
+      - test1
     nxtGameEvent: {fileID: 11400000, guid: d4b996a44bbbb8f4595f3607ac25c673, type: 2}
   - text: "\uB9D0\uC790"
     condition:
@@ -41,11 +46,15 @@ MonoBehaviour:
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     change:
       life: 0
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     nxtGameEvent: {fileID: 11400000, guid: 82297ba599bbfa84081b2baaa732c84b, type: 2}

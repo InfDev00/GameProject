@@ -15,7 +15,7 @@ MonoBehaviour:
   dayUpdate: 0
   stateText: "\uB808\uC774\uB4DC \uC131\uACF5!!"
   buttons:
-  - text: 
+  - text: "\u3131\uB450"
     condition:
       life: 0
       speech: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
       life: 0
       speech: 0
@@ -31,5 +31,6 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy:
+      - player
     nxtGameEvent: {fileID: 0}

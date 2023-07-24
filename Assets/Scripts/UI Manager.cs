@@ -17,10 +17,10 @@ public class UIManager : MonoBehaviour
     private GameObject SpeechText;
     private GameObject ForceText;
     private GameObject TacticsText;
-    [Header("Team")]
-    public GameObject Team1;
-    public GameObject Team2;
-    public GameObject Team3;
+    [Header("Enemy")]
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
     [Header("Life")]
     public GameObject Life1;
     public GameObject Life2;
@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
         UpdateArmy();
         UpdateDay();
         UpdateStatus();
-        UpdateTeam();
+        UpdateEnemy();
     }
 
     public void StatusPopUp()
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
         UpdateArmy();
         UpdateDay();
         UpdateStatus();
-        UpdateTeam();
+        UpdateEnemy();
         UpdateLife();
     }
 
@@ -79,28 +79,30 @@ public class UIManager : MonoBehaviour
         TacticsText.GetComponent<TextMeshProUGUI>().text = $"전술 : {GameManager.instance.GetTactics()}";
     }
 
-    public void UpdateTeam()
+    public void UpdateEnemy()
     {
-        Team1.GetComponent<TextMeshProUGUI>().text = "";
-        Team2.GetComponent<TextMeshProUGUI>().text = "";
-        Team3.GetComponent<TextMeshProUGUI>().text = "";
+        Enemy1.GetComponent<TextMeshProUGUI>().text = "";
+        Enemy2.GetComponent<TextMeshProUGUI>().text = "";
+        Enemy3.GetComponent<TextMeshProUGUI>().text = "";
 
-        List<string> team = GameManager.instance.GetTeam();
+        Dictionary<string, Group> enemy = GameManager.instance.GetEnemy();
         int idx = 0;
-        foreach (string teamName in team)
+        foreach (Group temp in enemy.Values)
         {
+            string text = $"{temp.GetName()}\n식량 : {temp.GetFood()}\n병력 : {temp.GetArmy()}";
             switch (idx % 3)
             {
                 case 0:
-                    Team1.GetComponent<TextMeshProUGUI>().text += teamName;
+                    Enemy1.GetComponent<TextMeshProUGUI>().text = text;
                     break;
                 case 1:
-                    Team2.GetComponent<TextMeshProUGUI>().text +=teamName;
+                    Enemy2.GetComponent<TextMeshProUGUI>().text =text;
                     break;
                 case 2:
-                    Team3.GetComponent<TextMeshProUGUI>().text +=teamName;
+                    Enemy3.GetComponent<TextMeshProUGUI>().text =text;
                     break;
             }
+            idx++;
         }
     }
 

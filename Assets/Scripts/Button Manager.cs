@@ -37,6 +37,7 @@ public class ButtonManager : MonoBehaviour
                 TopBtn.SetActive(false);
                 MidBtn.SetActive(false);
                 BotBtn.SetActive(false);
+                Debug.Log($"{buttons.Length}");
                 break;
         }
     }
@@ -55,9 +56,9 @@ public class ButtonManager : MonoBehaviour
         GameManager.instance.AddFood(this.nxtButtons[buttonIndex].change.food);
         GameManager.instance.AddArmy(this.nxtButtons[buttonIndex].change.army);
 
-        foreach (var member in this.nxtButtons[buttonIndex].change.team)
+        foreach (var enemy in this.nxtButtons[buttonIndex].change.enemy)
         {
-            if(!GameManager.instance.isTeam(member)) GameManager.instance.AddTeam(member);
+            if(!GameManager.instance.isEnemy(enemy)) GameManager.instance.AddEnemy(enemy);
         }
 
 

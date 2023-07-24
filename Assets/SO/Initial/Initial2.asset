@@ -33,11 +33,15 @@ MonoBehaviour:
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     change:
-      life: -1
+      life: 0
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     nxtGameEvent: {fileID: 11400000, guid: c48959012a36e004a9fedc5ce8b112aa, type: 2}

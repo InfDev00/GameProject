@@ -24,7 +24,7 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
       life: 0
       speech: 0
@@ -32,8 +32,8 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 10
-      team:
-      - "\uCD5C\uD544\uBD09"
+      enemy:
+      - test2
     nxtGameEvent: {fileID: 11400000, guid: f0947c62ca3eabd499ad76f0ad4a7590, type: 2}
   - text: "\uB3C4\uB9DD\uCE5C\uB2E4"
     condition:
@@ -43,7 +43,7 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
       life: -1
       speech: 0
@@ -51,5 +51,5 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     nxtGameEvent: {fileID: 11400000, guid: 09375706a70819043b6f65a13f986634, type: 2}
