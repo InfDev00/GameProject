@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Raid1
   m_EditorClassIdentifier: 
   dayUpdate: 0
-  stateText: "\uAC70\uB300 \uACE0\uB77C\uB2C8\uB97C \uC0C1\uB300\uB85C \uB108\uBB34
-    \uACE0\uC804\uD558\uB294\uB370 \uC5B4\uB5BB\uAC8C \uD558\uC9C0"
+  stateText: "\uACE0\uB77C\uB2C8\uAC00 \uB108\uBB34 \uAC15\uB825\uD558\uB2E4. \uC5B4\uB5BB\uAC8C
+    \uD558\uC9C0?"
   buttons:
   - text: "\uBCD1\uB825\uC744 \uB354 \uC99D\uC6D0\uD55C\uB2E4"
     condition:
@@ -24,7 +24,7 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 10
-      team: []
+      enemy: []
     change:
       life: 0
       speech: 0
@@ -32,8 +32,7 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: -10
-      team:
-      - "\uAE40\uB355\uBC30"
+      enemy: []
     nxtGameEvent: {fileID: 11400000, guid: 2a8b8dcc0ee562741a04b39d7e1046fd, type: 2}
   - text: "\uD3EC\uAE30\uD55C\uB2E4"
     condition:
@@ -43,7 +42,7 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
       life: 0
       speech: 0
@@ -51,5 +50,5 @@ MonoBehaviour:
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     nxtGameEvent: {fileID: 0}

@@ -21,11 +21,6 @@ public class UIManager : MonoBehaviour
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
-    [Header("Life")]
-    public GameObject Life1;
-    public GameObject Life2;
-    public GameObject Life3;
-
 
     void Start()
     {
@@ -33,11 +28,16 @@ public class UIManager : MonoBehaviour
         ForceText = Status.transform.Find("ForceText").gameObject;
         TacticsText = Status.transform.Find("TacticsText").gameObject;
 
-        UpdateFood();
-        UpdateArmy();
-        UpdateDay();
-        UpdateStatus();
-        UpdateEnemy();
+        UpdateGameInfo();
+    }
+
+    void Update()
+    {
+        if (GameManager.instance.UITriger)
+        {
+            UpdateGameInfo();
+            GameManager.instance.UITriger = false;
+        }
     }
 
     public void StatusPopUp()
@@ -47,24 +47,29 @@ public class UIManager : MonoBehaviour
         else Status.GetComponent<RectTransform>().anchoredPosition = new Vector3(0,-390,0);
     }
 
-    void Update() 
+    public void UpdateGameInfo() 
     {
         UpdateFood();
         UpdateArmy();
         UpdateDay();
         UpdateStatus();
         UpdateEnemy();
-        UpdateLife();
     }
+
+    
 
     public void UpdateFood()
     {
-        FoodText.GetComponent<TextMeshProUGUI>().text = $"식량 : {GameManager.instance.GetFood()}";
+        int food = GameManager.instance.GetFood();
+        food = food < 0 ? 0 : food;
+        FoodText.GetComponent<TextMeshProUGUI>().text = $"식량 : {food}";
     }
 
     public void UpdateArmy()
     {
-        ArmyText.GetComponent<TextMeshProUGUI>().text = $"병력 : {GameManager.instance.GetArmy()}";
+        int army = GameManager.instance.GetArmy();
+        army = army < 0 ? 0 : army;
+        ArmyText.GetComponent<TextMeshProUGUI>().text = $"병력 : {army}";
     }
 
     public void UpdateDay()
@@ -89,6 +94,7 @@ public class UIManager : MonoBehaviour
         int idx = 0;
         foreach (Group temp in enemy.Values)
         {
+            if (temp.GetName() == "player") continue;
             string text = $"{temp.GetName()}\n식량 : {temp.GetFood()}\n병력 : {temp.GetArmy()}";
             switch (idx % 3)
             {
@@ -103,25 +109,6 @@ public class UIManager : MonoBehaviour
                     break;
             }
             idx++;
-        }
-    }
-
-    public void UpdateLife() 
-    {
-        Life1.SetActive(true);
-        Life2.SetActive(true);
-        Life3.SetActive(true);
-        switch (GameManager.instance.GetLife())
-        {
-            case 3:
-                break;
-            case 2:
-                Life1.SetActive(false);
-                break;
-            case 1:
-                Life1.SetActive(false);
-                Life2.SetActive(false);
-                break;
         }
     }
 }

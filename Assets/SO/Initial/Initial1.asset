@@ -21,14 +21,19 @@ MonoBehaviour:
   buttons:
   - text: "\uD5C9\uC4F0"
     condition:
+      life: 0
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     change:
+      life: 0
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     nxtGameEvent: {fileID: 11400000, guid: e8adb7f4374a32040b8c2f6bfd8f5a0d, type: 2}
-  RandomEvent: []

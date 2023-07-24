@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
+  m_Name: Enemy1
+  m_EditorClassIdentifier: 
+  dayUpdate: 0
+  stateText: "\uD55C \uBB34\uB9AC\uC758 \uAE61\uD328\uB4E4\uC774 \uB2E4\uAC00\uC624\uACE0
+    \uC788\uC2B5\uB2C8\uB2E4. \uC5B4\uB5BB\uAC8C \uD560\uAE4C\uC694? "
+  buttons:
+  - text: "\uC228\uB294\uB2E4"
+    condition:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    change:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    nxtGameEvent: {fileID: 11400000, guid: 98212335d96839e41b479e596fa9614f, type: 2}
+  - text: "\uACF5\uACA9\uD55C\uB2E4"
+    condition:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 50
+      enemy: []
+    change:
+      speech: 0
+      force: 0
+      tactics: 10
+      food: 10
+      army: 0
+      enemy:
+      - "\uBD89\uC740 \uBC14\uB78C"
+    nxtGameEvent: {fileID: 11400000, guid: efc06173b8b8be14bb6c0588603f993d, type: 2}
+  - text: "\uB9D0\uC744 \uAC78\uC5B4\uBCF8\uB2E4"
+    condition:
+      speech: 20
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    change:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy:
+      - "\uBD89\uC740 \uBC14\uB78C"
+    nxtGameEvent: {fileID: 11400000, guid: 677c3ede7fbfeda4e83dac835a05009b, type: 2}

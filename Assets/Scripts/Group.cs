@@ -34,7 +34,15 @@ public class Group
         int attackArmy = (int)(this.army / 5);
         if(this.army < 60) return;
 
-        Debug.LogWarning($"{this.name} attacked {enemy.name}");
+
+        if(enemy.name == "player")
+        {
+            GameManager.instance.SetIsAttacked(true);
+            GameManager.instance.SetAttackAvailable(false);
+            GameManager.instance.SetCurrentEnemy(this);
+            GameManager.instance.SetCurrentEnemyArmy(attackArmy);
+            return;
+        }
 
         this.AddArmy(attackArmy*(-1));
         enemy.AddArmy((int)(attackArmy/2)*(-1));
@@ -44,6 +52,19 @@ public class Group
 
         int revengedProb = Random.Range(0, 100);
         if(revengedProb < enemy.GetCounterProb()) 
+        {
+            enemy.Attack(this);
+        }
+    }
+    public virtual void PlayerAttack(Group enemy, int attackArmy)
+    {
+        if (enemy == null) return;
+
+        enemy.AddArmy((int)(attackArmy / 2) * (-1));
+        enemy.AddFood((int)(attackArmy / 2) * (-1));
+
+        int revengedProb = Random.Range(0, 100);
+        if (revengedProb < enemy.GetCounterProb())
         {
             enemy.Attack(this);
         }

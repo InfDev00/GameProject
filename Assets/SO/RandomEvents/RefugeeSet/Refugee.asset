@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
+  m_Name: Refugee
+  m_EditorClassIdentifier: 
+  dayUpdate: 0
+  stateText: "\uAE38\uC744 \uAC00\uB2E4\uAC00 \uD55C \uBB34\uB9AC\uC758 \uC0AC\uB78C\uB4E4\uC744
+    \uBCF4\uC558\uC2B5\uB2C8\uB2E4. \uAE3F\uC744 \uC783\uACE0 \uD574\uB9E4\uB294
+    \uAC83 \uAC19\uC740\uB370 \uC5B4\uB5BB\uAC8C \uD560\uAE4C\uC694?"
+  buttons:
+  - text: "\uBC30\uAE09\uC744 \uBD84\uBC30\uD55C\uB2E4"
+    condition:
+      speech: 10
+      force: 0
+      tactics: 0
+      food: 20
+      army: 20
+      enemy: []
+    change:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: -20
+      army: 10
+      enemy: []
+    nxtGameEvent: {fileID: 11400000, guid: 891d34b416d52b6458a31bcb891fb89d, type: 2}
+  - text: "\uC9C0\uB3C4\uB97C \uBE4C\uB824\uC900\uB2E4"
+    condition:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    change:
+      speech: 10
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    nxtGameEvent: {fileID: 11400000, guid: 075f099a381166c48b78f83ac2991c8d, type: 2}
+  - text: "\uADF8\uB0E5 \uAC04\uB2E4"
+    condition:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    change:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    nxtGameEvent: {fileID: 0}

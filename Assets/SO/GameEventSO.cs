@@ -9,7 +9,6 @@ public class GameEventSO : ScriptableObject
     [System.Serializable]
     public struct Set
     {
-        public int life;
         public int speech;
         public int force;
         public int tactics;

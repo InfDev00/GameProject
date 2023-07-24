@@ -13,24 +13,22 @@ MonoBehaviour:
   m_Name: Theves2
   m_EditorClassIdentifier: 
   dayUpdate: 0
-  stateText: "\uC870\uAE08 \uB2E4\uCCE4\uC9C0\uB9CC \uACB0\uAD6D \uBB34\uC0AC\uD788
-    \uB3C4\uCC29\uD588\uC2B5\uB2C8\uB2E4"
+  stateText: "\uC2DD\uB7C9\uC744 \uC880 \uBE90\uACBC\uC9C0\uB9CC \uC131\uACF5\uC801\uC73C\uB85C
+    \uB3C4\uB9DD\uCCE4\uC2B5\uB2C8\uB2E4."
   buttons:
   - text: "\uB098\uC774\uC2A4"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     nxtGameEvent: {fileID: 0}
