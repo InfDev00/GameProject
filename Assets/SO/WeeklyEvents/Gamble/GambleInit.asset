@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
+  m_Name: GambleInit
+  m_EditorClassIdentifier: 
+  dayUpdate: 0
+  stateText: "\uC624 \uAC70\uAE30 \uBE48\uACE4\uD574 \uBCF4\uC774\uB294 \uCCAD\uB144
+    \uC774\uB9AC\uC640\uBCF4\uAC8C\uB098. \uD798\uB4E4\uC774\uC9C0 \uC54A\uACE0 \uC2DD\uB7C9\uC744
+    \uBC8C\uC5B4\uBCF4\uC9C0 \uC54A\uACA0\uB294\uAC00? \uC774\uAC74 \uB3C4\uBC15
+    \uAC19\uC740\uAC8C \uC544\uB2D0\uC138...\uCF08\uCF08\uCF08"
+  buttons:
+  - text: "\uBABB \uBA39\uC5B4\uB3C4 \uACE0"
+    condition:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      team: []
+    change:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      team: []
+    nxtGameEvent: {fileID: 11400000, guid: c4a156b07bb1984419148517ef929578, type: 2}
+  - text: "\uAC74\uC2E4\uD558\uAC8C \uC0B4\uC790 \uAC74\uC2E4\uD558\uAC8C"
+    condition:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      team: []
+    change:
+      life: 0
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      team: []
+    nxtGameEvent: {fileID: 0}
