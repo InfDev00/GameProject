@@ -9,13 +9,16 @@ public class ExceptionHandler
     int arrayIndex = 0;
     public void EventThrow(GameEventSO gameEvent)
     {
+        int prob = UnityEngine.Random.Range(0, 100);
 
         if (GameManager.instance.GetFood() < 0 || GameManager.instance.GetArmy() < 0) throw new Exception("DeadException");
-        
+
         if (gameEvent == null && GameManager.instance.GetIsAttacked() == true && GameManager.instance.GetAttackAvailable() == false) throw new Exception("EnemyException");
 
         else if (gameEvent == null && GameManager.instance.GetDay() % 7 == 6) throw new Exception("WeeklyEventException");
-
+        
+        else if (gameEvent == null && prob < 10 && GameManager.instance.GetEnemy().Count != 0) throw new Exception("PlayerAttackException");
+        
         else if (gameEvent == null) throw new Exception("NullException");
     }
 
@@ -60,6 +63,8 @@ public class ExceptionHandler
                 {
                     Debug.LogWarning($"WeeklyKeyError : {e.Message}");
                 }
+                break;
+            case "PlayerAttackException":
                 break;
         }
     }

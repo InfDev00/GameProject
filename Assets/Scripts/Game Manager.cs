@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     [Header("BattleEvent")]
     public GameEventSO battleEvent;
 
+    [Header("AttackEvent")]
+    public GameEventSO attackEvent;
+
     [Header("ActualObject")]
     private GameObject textBox;
     private GameObject button;
@@ -183,6 +186,11 @@ public class GameManager : MonoBehaviour
         {
             this.AddArmy(lossArmy * (-1));
         }
+    }
+
+    public void PlayerAttack()
+    {
+        SetGameEvent(attackEvent);
     }
 
     public void GameEnding()
