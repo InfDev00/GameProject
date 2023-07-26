@@ -50,18 +50,26 @@ public class ButtonManager : MonoBehaviour
 
     void ButtonEvent(int buttonIndex)
     {
-        if (nxtButtons[buttonIndex].text.Contains("[엔딩]"))
-        {
-            GameManager.instance.GameEnding();
-            return;
-        }
-        else if (nxtButtons[buttonIndex].text.Contains("반격한다"))
+        if (nxtButtons[buttonIndex].text.Contains("반격한다"))
         {
             GameManager.instance.PlayerCounter();
         }
         else if (nxtButtons[buttonIndex].text.Contains("수비한다"))
         {
             GameManager.instance.PlayerDefence();
+        }
+
+        else if (nxtButtons[buttonIndex].text.Contains("붉은 바람을 공격한다"))
+        {
+            GameManager.instance.EnemyAttacked("붉은 바람");
+        }
+        else if (nxtButtons[buttonIndex].text.Contains("녹색 번개를 공격한다"))
+        {
+            GameManager.instance.EnemyAttacked("녹색 번개");
+        }
+        else if (nxtButtons[buttonIndex].text.Contains("푸른 불꽃을 공격한다"))
+        {
+            GameManager.instance.EnemyAttacked("푸른 불꽃");
         }
 
         else

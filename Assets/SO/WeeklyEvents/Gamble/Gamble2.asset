@@ -19,37 +19,36 @@ MonoBehaviour:
   buttons:
   - text: "\uBD88\uAE38\uD55C \uAE30\uC6B4\uC774 \uAC10\uB3C4\uB294 \uCABD\uC9C0"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 500
       army: 0
-      team: []
+      enemy:
+      - "\uBD89\uC740 \uBC14\uB78C"
+      - "\uB179\uC0C9 \uBC88\uAC1C"
+      - "\uD478\uB978 \uBD88\uAF43"
     nxtGameEvent: {fileID: 11400000, guid: 157c1ddc38eb71b4c9b5c344122c1052, type: 2}
-  - text: 
+  - text: "\uAC80\uC740 \uC544\uC6B0\uB77C\uAC00 \uD750\uB974\uB294 \uCABD\uC9C0"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: -100
       army: 0
-      team: []
+      enemy: []
     nxtGameEvent: {fileID: 11400000, guid: 4fbfe3ad538ed784da7657599619eb12, type: 2}

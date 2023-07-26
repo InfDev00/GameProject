@@ -27,20 +27,20 @@ public class Group
         this.attackProb = 0;
     }
 
-    public virtual void Attack(Group enemy)
+    public void Attack(Group enemy)
     {
-        if (enemy == null || enemy.name == this.name) return;
+        Debug.Log($"GROUP : {this.GetName()} attaced {enemy.GetName()} with {GameManager.instance.GetIsAttacked()}");
+        if (enemy.name == this.name) return;
+        int attackArmy = (int)(this.army / 10);
+        if(this.army < 100) return; //이게 원인. 병력 증진하는 이벤트 넣어야 할 듯
 
-        int attackArmy = (int)(this.army / 5);
-        if(this.army < 60) return;
 
-
-        if(enemy.name == "player")
+        if (enemy.name == "player")
         {
             GameManager.instance.SetIsAttacked(true);
-            GameManager.instance.SetAttackAvailable(false);
             GameManager.instance.SetCurrentEnemy(this);
             GameManager.instance.SetCurrentEnemyArmy(attackArmy);
+            Debug.Log($"{GameManager.instance.GetIsAttacked()} PlayerAttacked");
             return;
         }
 
@@ -56,7 +56,7 @@ public class Group
             enemy.Attack(this);
         }
     }
-    public virtual void PlayerAttack(Group enemy, int attackArmy)
+    public void PlayerAttack(Group enemy, int attackArmy)
     {
         if (enemy == null) return;
 

@@ -17,7 +17,6 @@ MonoBehaviour:
   buttons:
   - text: "\uC131\uACF5!!"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
@@ -25,11 +24,10 @@ MonoBehaviour:
       army: 0
       enemy: []
     change:
-      life: 0
       speech: 0
       force: 10
       tactics: 0
-      food: 20
+      food: 100
       army: 0
       enemy:
       - player

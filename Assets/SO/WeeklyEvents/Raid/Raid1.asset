@@ -18,7 +18,6 @@ MonoBehaviour:
   buttons:
   - text: "\uBCD1\uB825\uC744 \uB354 \uC99D\uC6D0\uD55C\uB2E4"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
@@ -26,17 +25,15 @@ MonoBehaviour:
       army: 10
       enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
-      army: -10
+      army: -30
       enemy: []
     nxtGameEvent: {fileID: 11400000, guid: 2a8b8dcc0ee562741a04b39d7e1046fd, type: 2}
   - text: "\uD3EC\uAE30\uD55C\uB2E4"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
@@ -44,7 +41,6 @@ MonoBehaviour:
       army: 0
       enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0

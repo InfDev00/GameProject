@@ -10,29 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
-  m_Name: Theves
+  m_Name: Game 1
   m_EditorClassIdentifier: 
-  dayUpdate: 1
-  stateText: "\uC557! \uAE38\uC5D0\uC11C \uD55C \uBB34\uB9AC\uC758 \uB3C4\uC801\uB54C\uB97C
-    \uB9CC\uB0AC\uC2B5\uB2C8\uB2E4. \uC5B4\uB5BB\uAC8C \uD560\uAE4C\uC694?"
+  dayUpdate: 0
+  stateText: "\uADF8\uB4E4\uC774 \uCCB4\uC2A4\uB97C \uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4.
+    \uCC38\uC5EC\uD560\uAE4C\uC694?"
   buttons:
-  - text: "\uBD80\uD558\uB85C \uB9CC\uB4E0\uB2E4"
-    condition:
-      speech: 0
-      force: 10
-      tactics: 0
-      food: 0
-      army: 0
-      enemy: []
-    change:
-      speech: 0
-      force: 0
-      tactics: 0
-      food: 0
-      army: 100
-      enemy: []
-    nxtGameEvent: {fileID: 11400000, guid: f0947c62ca3eabd499ad76f0ad4a7590, type: 2}
-  - text: "\uB3C4\uB9DD\uCE5C\uB2E4"
+  - text: "\uB0B4\uAC00 \uC880 \uCE58\uC9C0"
     condition:
       speech: 0
       force: 0
@@ -44,7 +28,23 @@ MonoBehaviour:
       speech: 0
       force: 0
       tactics: 0
-      food: -10
+      food: 0
       army: 0
       enemy: []
-    nxtGameEvent: {fileID: 11400000, guid: 09375706a70819043b6f65a13f986634, type: 2}
+    nxtGameEvent: {fileID: 11400000, guid: 33dc6688a47d21345a2b4d8a228397fb, type: 2}
+  - text: "\uC544\uB2C8, \uADC0\uCC2E\uC740\uB370 \uADF8\uB0E5 \uAC00\uC790"
+    condition:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    change:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    nxtGameEvent: {fileID: 0}

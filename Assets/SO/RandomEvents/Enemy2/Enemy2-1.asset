@@ -10,26 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
-  m_Name: Ending1
+  m_Name: Enemy2-1
   m_EditorClassIdentifier: 
   dayUpdate: 0
-  stateText: "\uB2F9\uC2E0\uC740 \uB2F9\uD669\uC2A4\uB7FD\uC9C0\uB9CC \uADF8\uB0E5
-    \uB0A8\uAE30\uB85C \uACB0\uC2EC\uD569\uB2C8\uB2E4. \uD3C9\uC0DD \uBCF8 \uC801
-    \uC5C6\uB294 \uC544\uBC84\uC9C0\uB97C \uCC3E\uAE30\uBCF4\uB2E8 \uADF8\uB0E5 \uBA38\uBB34\uB294\uAC8C
-    \uB0AB\uC8E0. \n\uC5B4\uBA38\uB2C8\uC640 \uD568\uAED8 \uD3C9\uC0DD\uC744 \uC0B4\uBA70
-    \uB2F9\uC2E0\uC740 \uD589\uBCF5\uD588\uC2B5\uB2C8\uB2E4."
+  stateText: "\uADF8\uB4E4\uC740 \uB2F9\uC2E0\uC744 \uC7A0\uAE50 \uC9F8\uB824\uBCF4\uB354\uB2C8
+    \uBB3C\uB7EC\uB0A9\uB2C8\uB2E4."
   buttons:
-  - text: "[\uC5D4\uB529] \uBE60\uB978 \uD3EC\uAE30"
+  - text: "\uD734\uC6B0"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
-      team: []
+      food: 0
+      army: 0
+      enemy: []
     nxtGameEvent: {fileID: 0}

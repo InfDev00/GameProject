@@ -20,37 +20,34 @@ MonoBehaviour:
   buttons:
   - text: "\uBABB \uBA39\uC5B4\uB3C4 \uACE0"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy:
+      - player
     nxtGameEvent: {fileID: 11400000, guid: c4a156b07bb1984419148517ef929578, type: 2}
   - text: "\uAC74\uC2E4\uD558\uAC8C \uC0B4\uC790 \uAC74\uC2E4\uD558\uAC8C"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     nxtGameEvent: {fileID: 0}

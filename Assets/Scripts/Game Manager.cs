@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     [Header("Prefabs")]
@@ -46,13 +47,12 @@ public class GameManager : MonoBehaviour
     private Group currentEnemy;
     private int currentEnemyArmy;
     private bool isAttacked;
-    private bool AttackAvailable;
     private Dictionary<string, Group> enemy = new Dictionary<string, Group>();
     private Dictionary<string, Group> AllEnemyDictionary = new Dictionary<string, Group>
     {
-        {"ºÓÀº ¹Ù¶÷", new Group("ºÓÀº ¹Ù¶÷", 100, 100, 10, 30) },//string name, int food, int army, int counterProb, int attackProb
-        {"³ì»ö ¹ø°³", new Group("³ì»ö ¹ø°³", 100, 100, 80, 30) },
-        {"Çª¸¥ ºÒ²É", new Group("Çª¸¥ ºÒ²É", 100, 100, 5, 10) },
+        {"ºÓÀº ¹Ù¶÷", new Group("ºÓÀº ¹Ù¶÷", 1000, 1000, 10, 20) },//string name, int food, int army, int counterProb, int attackProb
+        {"³ì»ö ¹ø°³", new Group("³ì»ö ¹ø°³", 1000, 1000, 80, 10) },
+        {"Çª¸¥ ºÒ²É", new Group("Çª¸¥ ºÒ²É", 1000, 1000, 5, 50) },
         {"player", new Group("player", 0,1000,0,0) },
     };
 
@@ -64,29 +64,29 @@ public class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
         }
 
     }
 
-    void Destroy()
-    {
-        instance = null;
-    }
-
     void Start()
     {
-        player = new Group(initialFood,initialArmy);
+        GameInit();
+    }
+
+    public void GameInit()
+    {
+        player = new Group(initialFood, initialArmy);
         day = 0;
 
         speech = 0;
         force = 0;
         tactics = 0;
         isAttacked = false;
-        AttackAvailable = true;
 
+        ClearEnemy();
+        ClearWeeklyEvent();
         for (int i = 0; i < weeklyEventKeys.Length; ++i) AddWeeklyEvent(weeklyEventKeys[i], weeklyEventValues[i]);
-
+        exceptionHandler.weeklyEventIndex = weeklyEventKeys;
 
         Destroy(GameObject.Find("Button"));
         Destroy(GameObject.Find("TextBox"));
@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
 
     public void GroupBattle()
     {
+        List<(Group, Group)> attackList = new List<(Group, Group)>();
         List<string> keys = new List<string>(enemy.Keys);
         foreach(var group in enemy.Values) 
         {
@@ -126,9 +127,14 @@ public class GameManager : MonoBehaviour
             if (prob < group.GetAttackProb()) 
             {
                 prob = UnityEngine.Random.Range(0, enemy.Count);
-                group.Attack(enemy[keys[prob]]);
-
+                attackList.Add((group, enemy[keys[prob]]));
+                Debug.Log($"MANAGER : {group.GetName()} attaced {enemy[keys[prob]].GetName()} with {this.isAttacked}");
             }
+        }
+
+        foreach(var (attackGroup, attackedGroup) in attackList)
+        {
+            attackGroup.Attack(attackedGroup);
         }
 
         foreach(var group in enemy)
@@ -137,8 +143,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GroupPlunder()
+    {
+        foreach (var group in enemy.Values)
+        {
+            int plunderProb = UnityEngine.Random.Range(0, 100);
+            if(plunderProb < 30)
+            {
+                group.AddArmy(100);
+                group.AddFood(100);
+            }
+        }
+    }
+
     public void PlayerAttacked()
     {
+        Debug.Log("PlayerAttacked");
         SetGameEvent(battleEvent);
     }
 
@@ -193,8 +213,21 @@ public class GameManager : MonoBehaviour
         SetGameEvent(attackEvent);
     }
 
+    public void EnemyAttacked(string name)
+    {
+        int attackFood = (int)(this.GetFood() / 10);
+        int attackArmy = (int)(this.GetArmy() / 10);
+        this.GetEnemy()[name].AddFood(attackFood*(-1));
+        this.GetEnemy()[name].AddArmy(attackArmy*(-1));
+        this.AddFood(attackFood);
+        this.AddArmy(attackArmy);
+    }
+
     public void GameEnding()
     {
+        SceneValue.globalDay = this.GetDay();
+        SceneValue.globalArmy = this.GetArmy();
+        SceneValue.globalFood = this.GetFood();
         SceneManager.LoadScene("EndingScene");
         //#if UNITY_EDITOR
         //        UnityEditor.EditorApplication.isPlaying = false;
@@ -207,6 +240,7 @@ public class GameManager : MonoBehaviour
     {
         this.day += day;
         this.GroupBattle();
+        this.GroupPlunder();
     }
     public int GetDay() { return day; }
 
@@ -233,10 +267,12 @@ public class GameManager : MonoBehaviour
     public void AddEnemy(string enemy) {this.enemy.Add(enemy, AllEnemyDictionary[enemy]); }
     public void RemoveEnemy(string enemy) { this.enemy.Remove(enemy); }
     public Dictionary<string, Group> GetEnemy() { return this.enemy;}
+    public void ClearEnemy() { this.enemy.Clear();}
     public bool isEnemy(string enemy) { return this.enemy.ContainsKey(enemy); }
 
     public void AddWeeklyEvent(string key, GameEventSO value) { this.weeklyEvent.Add(key, value); }
     public void RemoveWeeklyEvent(string key) { this.weeklyEvent.Remove(key); }
+    public void ClearWeeklyEvent() { this.weeklyEvent.Clear(); }
     public Dictionary<string, GameEventSO> GetWeeklyEvent() { return this.weeklyEvent; }
 
     public void SetCurrentEnemy(Group enemy) { this.currentEnemy = enemy;}
@@ -249,7 +285,4 @@ public class GameManager : MonoBehaviour
 
     public bool GetIsAttacked() { return this.isAttacked; }
     public void SetIsAttacked(bool tmp) { this.isAttacked = tmp; }
-
-    public bool GetAttackAvailable() { return this.AttackAvailable; }
-    public void SetAttackAvailable(bool tmp) { this.AttackAvailable = tmp; }
 }

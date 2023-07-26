@@ -10,29 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
-  m_Name: Raid
+  m_Name: Enemy3-1
   m_EditorClassIdentifier: 
   dayUpdate: 0
-  stateText: "\uAC70\uB300 \uACE0\uB77C\uB2C8\uAC00 \uB0A0\uB6F0\uACE0 \uC788\uC5B4!!
-    \uC5B4\uB5BB\uAC8C \uD560\uAE4C?"
+  stateText: "\"\uAC10\uC0AC\uD569\uB2C8\uB2E4. \uD478\uB978 \uBD88\uAF43\uC740 \uAF2D
+    \uC740\uD61C\uB97C \uAC1A\uC2B5\uB2C8\uB2E4.\"\n\n\uADF8\uB294 \uADF8 \uAE38\uB85C
+    \uCB49 \uAC78\uC5B4\uAC11\uB2C8\uB2E4."
   buttons:
-  - text: "\uB9DE\uC11C \uC2F8\uC6CC!!"
-    condition:
-      speech: 0
-      force: 0
-      tactics: 0
-      food: 0
-      army: 10
-      enemy: []
-    change:
-      speech: 0
-      force: 0
-      tactics: 0
-      food: 0
-      army: -20
-      enemy: []
-    nxtGameEvent: {fileID: 11400000, guid: 9e18cd02dcc6f23408e596bf750dfb3c, type: 2}
-  - text: "\uB3C4\uB9DD\uAC00\uC790!"
+  - text: "\uC557. \uAC70\uC9D3\uB9D0\uC778\uB370"
     condition:
       speech: 0
       force: 0

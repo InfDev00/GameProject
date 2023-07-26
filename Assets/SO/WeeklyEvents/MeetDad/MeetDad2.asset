@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
+  m_Name: MeetDad2
+  m_EditorClassIdentifier: 
+  dayUpdate: 0
+  stateText: "\"\uC73C\uC73C\uC73C...\"\n\uBB38\uC9C0\uAE30\uB4E4\uC744 \uB6AB\uACE0
+    \uB4E4\uC5B4\uAC00\uC790 \uD55C \uBB34\uB9AC\uC758 \uC0AC\uB78C\uB4E4\uC774 \uB2EC\uB824\uC635\uB2C8\uB2E4.
+    \uC557! \uADF8 \uC911\uC5D0 \uB2F9\uC2E0\uACFC \uB611 \uB2EE\uC740 \uB204\uAD70\uAC00\uAC00
+    \uC11C \uC788\uC2B5\uB2C8\uB2E4.\n\n\uB2F9\uC2E0\uC740 \uBB34\uB9AC\uB97C \uB6AB\uACE0
+    \uB4E4\uC5B4\uAC00 \uD3B8\uC9C0\uB97C \uAC74\uB0C5\uB2C8\uB2E4."
+  buttons:
+  - text: "\uC544\uBC84\uC9C0!!"
+    condition:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 0
+      army: 0
+      enemy: []
+    change:
+      speech: 0
+      force: 0
+      tactics: 0
+      food: 100
+      army: 200
+      enemy: []
+    nxtGameEvent: {fileID: 11400000, guid: 4d0e5d865e4b29f40ac1ad14e1f612c8, type: 2}

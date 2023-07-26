@@ -10,29 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
-  m_Name: Raid
+  m_Name: MeetDad1
   m_EditorClassIdentifier: 
   dayUpdate: 0
-  stateText: "\uAC70\uB300 \uACE0\uB77C\uB2C8\uAC00 \uB0A0\uB6F0\uACE0 \uC788\uC5B4!!
-    \uC5B4\uB5BB\uAC8C \uD560\uAE4C?"
+  stateText: "\uBB38 \uC55E\uC5D0\uC11C\uC758 \uC5B8\uC7C1\uC744 \uB4E3\uACE0 \uB204\uAD70\uAC00\uAC00
+    \uB098\uC654\uC2B5\uB2C8\uB2E4.\n\"\uB300, \uB300\uC7A5\uB2D8!\"\n\uB2F9\uC2E0\uACFC
+    \uB611 \uB2EF\uC740 \uADF8 \uB0A8\uC790\uC5D0\uAC8C \uB2F9\uC2E0\uC740 \uD3B8\uC9C0\uB97C
+    \uAC74\uB0C5\uB2C8\uB2E4."
   buttons:
-  - text: "\uB9DE\uC11C \uC2F8\uC6CC!!"
-    condition:
-      speech: 0
-      force: 0
-      tactics: 0
-      food: 0
-      army: 10
-      enemy: []
-    change:
-      speech: 0
-      force: 0
-      tactics: 0
-      food: 0
-      army: -20
-      enemy: []
-    nxtGameEvent: {fileID: 11400000, guid: 9e18cd02dcc6f23408e596bf750dfb3c, type: 2}
-  - text: "\uB3C4\uB9DD\uAC00\uC790!"
+  - text: "\uC544\uBC84\uC9C0!!"
     condition:
       speech: 0
       force: 0
@@ -44,7 +30,7 @@ MonoBehaviour:
       speech: 0
       force: 0
       tactics: 0
-      food: 0
-      army: 0
+      food: 100
+      army: 200
       enemy: []
-    nxtGameEvent: {fileID: 0}
+    nxtGameEvent: {fileID: 11400000, guid: 4d0e5d865e4b29f40ac1ad14e1f612c8, type: 2}

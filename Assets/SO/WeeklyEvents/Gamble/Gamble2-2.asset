@@ -13,42 +13,21 @@ MonoBehaviour:
   m_Name: Gamble2-2
   m_EditorClassIdentifier: 
   dayUpdate: 0
-  stateText: "\uD6E0\uD6E0\uD6E0.. \uC774\uAC83 \uCC38 \uC548\uD0C0\uAE5D\uAC8C \uB418\uC5C8\uAD6C\uB9CC..
-    \uC5B4\uB54C \uD55C\uBC88 \uB354 \uD560\uD150\uAC00..? \uCF08\uCF08 "
+  stateText: "\uD6E0\uD6E0\uD6E0.. \uC774\uAC83 \uCC38 \uC548\uD0C0\uAE5D\uAC8C \uB418\uC5C8\uAD6C\uB9CC.."
   buttons:
-  - text: "\uD55C\uBC88\uB354?"
-    condition:
-      life: 0
-      speech: 0
-      force: 0
-      tactics: 0
-      food: 0
-      army: 0
-      team: []
-    change:
-      life: 0
-      speech: 0
-      force: 0
-      tactics: 0
-      food: 0
-      army: 0
-      team: []
-    nxtGameEvent: {fileID: 11400000, guid: c4a156b07bb1984419148517ef929578, type: 2}
   - text: "\uADF8\uB9CC\uB454\uB2E4"
     condition:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     change:
-      life: 0
       speech: 0
       force: 0
       tactics: 0
       food: 0
       army: 0
-      team: []
+      enemy: []
     nxtGameEvent: {fileID: 0}

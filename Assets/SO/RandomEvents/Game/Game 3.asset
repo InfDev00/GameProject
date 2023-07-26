@@ -10,33 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 384b1dac5379eb144860b009bc3a75cb, type: 3}
-  m_Name: Raid
+  m_Name: Game 3
   m_EditorClassIdentifier: 
   dayUpdate: 0
-  stateText: "\uAC70\uB300 \uACE0\uB77C\uB2C8\uAC00 \uB0A0\uB6F0\uACE0 \uC788\uC5B4!!
-    \uC5B4\uB5BB\uAC8C \uD560\uAE4C?"
+  stateText: "\uB2F9\uC2E0\uC774 \uC2B9\uB9AC\uD588\uC2B5\uB2C8\uB2E4!! \uBCF4\uC0C1\uC73C\uB85C
+    \uC2DD\uB7C9\uC744 \uC880 \uC5BB\uC5C8\uC2B5\uB2C8\uB2E4."
   buttons:
-  - text: "\uB9DE\uC11C \uC2F8\uC6CC!!"
+  - text: "\uD558\uD558"
     condition:
       speech: 0
       force: 0
-      tactics: 0
-      food: 0
-      army: 10
-      enemy: []
-    change:
-      speech: 0
-      force: 0
-      tactics: 0
-      food: 0
-      army: -20
-      enemy: []
-    nxtGameEvent: {fileID: 11400000, guid: 9e18cd02dcc6f23408e596bf750dfb3c, type: 2}
-  - text: "\uB3C4\uB9DD\uAC00\uC790!"
-    condition:
-      speech: 0
-      force: 0
-      tactics: 0
+      tactics: 20
       food: 0
       army: 0
       enemy: []
